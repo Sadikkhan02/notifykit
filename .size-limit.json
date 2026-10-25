@@ -1,0 +1,7 @@
+[
+  {
+    "name": "notifykit (core)",
+    "path": "packages/core/dist/index.js",
+    "limit": "60 KB"
+  }
+]

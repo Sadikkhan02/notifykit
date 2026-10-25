@@ -1,0 +1,22 @@
+{
+  "name": "notifykit-cli",
+  "version": "0.0.1",
+  "type": "module",
+  "bin": {
+    "notifykit": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
