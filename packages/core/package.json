@@ -29,6 +29,9 @@
     "README.md",
     "LICENSE"
   ],
+  "dependencies": {
+    "zod": "^3.24.2"
+  },
   "engines": {
     "node": ">=20.0.0"
   }

@@ -13,6 +13,12 @@ export default defineConfig({
         branches: 80,
         functions: 85,
         statements: 85,
+        'src/config/**': {
+          lines: 90,
+          branches: 90,
+          functions: 90,
+          statements: 90,
+        },
       },
     },
   },
