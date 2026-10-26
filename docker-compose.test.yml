@@ -1,0 +1,12 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: notifykit-test-redis
+    ports:
+      - '6379:6379'
+    command: redis-server --maxmemory 128mb --maxmemory-policy noeviction
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 1s
+      timeout: 3s
+      retries: 30

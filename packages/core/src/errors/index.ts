@@ -5,3 +5,4 @@ export {
   MissingVariableError,
   TemplateSyntaxError,
 } from '../templates/errors';
+export { RedisUnavailableError, QueueFullError } from '../queue/errors';
