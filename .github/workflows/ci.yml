@@ -34,11 +34,11 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Test & Coverage
-        run: npm run test:coverage
-
       - name: Build
         run: npm run build
+
+      - name: Test & Coverage
+        run: npm run test:coverage
 
       - name: Size Limit
         run: npm run size-limit

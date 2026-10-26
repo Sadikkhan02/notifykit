@@ -22,7 +22,7 @@ describe('Built-package consumer test (notifykit/interfaces export contract)', (
     expect(existsSync(interfacesDts)).toBe(true);
     expect(existsSync(interfacesJs)).toBe(true);
     expect(existsSync(interfacesCjs)).toBe(true);
-  });
+  }, 30000);
 
   it('resolves notifykit/interfaces via runtime ESM import through package exports', async () => {
     const esmModule = await import('notifykit/interfaces');
