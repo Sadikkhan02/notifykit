@@ -57,14 +57,18 @@ describe('Queue Layer — Real-Redis Integration Tests', () => {
     }
   }, 30000);
 
-  it('TC-Q-INT-01: enqueues a job into real Redis and appears in wait list', async (ctx) => {
+  const assertRedisAvailable = (ctx: { skip: () => void }): void => {
     if (!redisUrl) {
       if (isCi) {
         throw new Error('Real-Redis integration test cannot be skipped in CI: Redis is required.');
       }
       ctx.skip();
-      return;
     }
+  };
+
+  it('TC-Q-INT-01: enqueues a job into real Redis and appears in wait list', async (ctx) => {
+    assertRedisAvailable(ctx);
+    if (!redisUrl) return;
 
     const testJob: NotificationJob = {
       id: '018f9e60-466d-71b3-a00e-6f8d098ef7ab',
@@ -93,10 +97,8 @@ describe('Queue Layer — Real-Redis Integration Tests', () => {
   });
 
   it('enqueues using default registry when config.registry is not supplied', async (ctx) => {
-    if (!redisUrl) {
-      ctx.skip();
-      return;
-    }
+    assertRedisAvailable(ctx);
+    if (!redisUrl) return;
 
     const testJob: NotificationJob = {
       id: 'default_reg_job',
@@ -118,10 +120,8 @@ describe('Queue Layer — Real-Redis Integration Tests', () => {
   });
 
   it('TC-Q-INT-02: routes to correct queue keys per channel', async (ctx) => {
-    if (!redisUrl) {
-      ctx.skip();
-      return;
-    }
+    assertRedisAvailable(ctx);
+    if (!redisUrl) return;
 
     const smsJob: NotificationJob = {
       id: '018f9e60-466d-71b3-a00e-6f8d098ef7ac',
@@ -148,10 +148,8 @@ describe('Queue Layer — Real-Redis Integration Tests', () => {
   });
 
   it('TC-Q-INT-03: 100-Enqueue Namespace Isolation Test (Addendum §D.1 line 5825)', async (ctx) => {
-    if (!redisUrl) {
-      ctx.skip();
-      return;
-    }
+    assertRedisAvailable(ctx);
+    if (!redisUrl) return;
 
     // Flush db to ensure clean isolation check
     await directRedisClient.flushdb();
@@ -185,10 +183,8 @@ describe('Queue Layer — Real-Redis Integration Tests', () => {
   });
 
   it('TC-Q-INT-04: Retention policy application test (Addendum §D.1 line 5826)', async (ctx) => {
-    if (!redisUrl) {
-      ctx.skip();
-      return;
-    }
+    assertRedisAvailable(ctx);
+    if (!redisUrl) return;
 
     const emailQueue = registry.getQueue('email');
     const emailJob = await emailQueue.getJob('iso_job_0');
@@ -204,10 +200,8 @@ describe('Queue Layer — Real-Redis Integration Tests', () => {
   });
 
   it('TC-Q-INT-05: Shared Client Identity & Connection Configuration', async (ctx) => {
-    if (!redisUrl) {
-      ctx.skip();
-      return;
-    }
+    assertRedisAvailable(ctx);
+    if (!redisUrl) return;
 
     const emailQueue = registry.getQueue('email');
     const smsQueue = registry.getQueue('sms');
@@ -229,10 +223,8 @@ describe('Queue Layer — Real-Redis Integration Tests', () => {
   });
 
   it('TC-Q-INT-06: Graceful producer shutdown leaves no dangling connections', async (ctx) => {
-    if (!redisUrl) {
-      ctx.skip();
-      return;
-    }
+    assertRedisAvailable(ctx);
+    if (!redisUrl) return;
 
     const tempConnection = createRedisConnection(redisUrl);
     const tempRegistry = new QueueRegistry(tempConnection);

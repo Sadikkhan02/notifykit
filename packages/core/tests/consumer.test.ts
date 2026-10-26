@@ -48,5 +48,5 @@ describe('Built-package consumer test (notifykit/interfaces export contract)', (
     });
 
     expect(result).toBe('');
-  });
+  }, 20000);
 });

@@ -48,11 +48,18 @@ describe('Queue Layer — Performance Benchmark Test (Separate Suite)', () => {
     }
   }, 30000);
 
-  it('TC-Q-PERF: enqueuing 500 jobs achieves p99 latency < 10.0 ms per job', async (ctx) => {
+  const assertRedisAvailable = (ctx: { skip: () => void }): void => {
     if (!redisUrl) {
+      if (isCi) {
+        throw new Error('Real-Redis benchmark test cannot be skipped in CI: Redis is required.');
+      }
       ctx.skip();
-      return;
     }
+  };
+
+  it('TC-Q-PERF: enqueuing 500 jobs achieves p99 latency < 10.0 ms per job', async (ctx) => {
+    assertRedisAvailable(ctx);
+    if (!redisUrl) return;
 
     const N = 500;
     const latencies: number[] = [];
