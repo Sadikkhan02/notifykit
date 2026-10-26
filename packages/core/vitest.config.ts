@@ -19,6 +19,12 @@ export default defineConfig({
           functions: 90,
           statements: 90,
         },
+        'src/templates/**': {
+          lines: 90,
+          branches: 90,
+          functions: 90,
+          statements: 90,
+        },
       },
     },
   },
