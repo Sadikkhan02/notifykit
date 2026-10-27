@@ -48,6 +48,18 @@ describe('NodemailerEmailProvider', () => {
         nodemailer: '>=6.9.0',
       });
     });
+
+    it('satisfies the core AdapterMetadata contract and type assignment', () => {
+      const coreMeta: import('notifykit/interfaces').AdapterMetadata = metadata;
+      expect(coreMeta.name).toBe('nodemailer');
+      expect(coreMeta.channel).toBe('email');
+      expect(coreMeta.requiredEnv).toEqual([
+        'SMTP_HOST',
+        'SMTP_PORT',
+        'SMTP_USER',
+        'SMTP_PASSWORD',
+      ]);
+    });
   });
 
   describe('Configuration & Port/Secure Defaults', () => {

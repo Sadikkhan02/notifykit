@@ -29,8 +29,12 @@ export interface NodemailerConfig {
 
 /**
  * Extended metadata interface for the Nodemailer adapter per Master Spec §12 Phase 6.
+ * Accurately implements and extends core AdapterMetadata.
  */
 export interface NodemailerAdapterMetadata extends AdapterMetadata {
+  name: string;
+  channel: 'email';
+  requiredEnv: string[];
   /** Package version for runtime compatibility checks */
   version: string;
   /** Peer dependency requirements */
