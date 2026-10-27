@@ -19,3 +19,26 @@ export {
 } from './retry-policy';
 
 export { RedisUnavailableError, QueueFullError } from './errors';
+
+export { dispatchJob, type DispatchOptions } from './dispatch';
+
+export { classifyError, isRetryableError, type ClassifiedError } from './error-classifier';
+
+export {
+  routeToDlq,
+  generateDlqJobId,
+  type DeadLetterJob,
+  type DeadLetterErrorDetails,
+  type TerminalFailureReason,
+  type DlqRoutingOptions,
+} from './dlq';
+
+export {
+  createChannelWorker,
+  processNotificationJob,
+  WorkerManager,
+  type StartWorkerOptions,
+  type WorkerJobContext,
+  type ChannelWorkerOptions,
+  type WorkerManagerOptions,
+} from './worker';

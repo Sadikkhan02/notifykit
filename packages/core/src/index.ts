@@ -34,6 +34,7 @@ export {
   getDefaultJobOptions,
   RedisUnavailableError,
   QueueFullError,
+  type StartWorkerOptions,
 } from './queue/index.js';
 export { getLogger, createScopedLogger, type Logger, type LogBindings } from './logging/index.js';
 export {

@@ -5,6 +5,7 @@ import type { NotifierConfig } from '../interfaces/config.js';
 import type { NotificationEvent } from '../interfaces/event.js';
 import { getLogger, type Logger } from '../logging/logger.js';
 import type { QueueRegistry } from '../queue/registry.js';
+import { WorkerManager, type StartWorkerOptions } from '../queue/worker.js';
 import { TemplateStore } from '../templates/store.js';
 import { notify, type NotifyResult } from './notify.js';
 
@@ -32,10 +33,15 @@ export interface Notifier {
   registerTemplate(id: string, source: string): void;
 
   /**
-   * Worker lifecycle stub — explicitly deferred to Phase 5.
-   * Throws E_NOT_IMPLEMENTED in Phase 4.
+   * Starts BullMQ worker processors for configured delivery channels.
+   * Synchronous validation; initiates background cleanup if construction fails mid-loop.
    */
-  startWorker(opts?: { channels?: Array<'email' | 'sms' | 'push'>; concurrency?: number }): void;
+  startWorker(opts?: StartWorkerOptions): void;
+
+  /**
+   * Gracefully shuts down all workers owned by this notifier instance, draining active in-flight jobs.
+   */
+  stopWorker(): Promise<void>;
 }
 
 /**
@@ -70,6 +76,12 @@ export function createNotifier(options?: CreateNotifierOptions): Notifier {
     }
   }
 
+  const workerManager = new WorkerManager({
+    config: validatedConfig,
+    registry: options?.registry,
+    logger,
+  });
+
   return {
     async notify(event: NotificationEvent): Promise<NotifyResult> {
       return notify(event, {
@@ -84,15 +96,12 @@ export function createNotifier(options?: CreateNotifierOptions): Notifier {
       templateStore.register(id, source);
     },
 
-    startWorker(_opts?: {
-      channels?: Array<'email' | 'sms' | 'push'>;
-      concurrency?: number;
-    }): void {
-      throw new NotifyKitError({
-        code: 'E_NOT_IMPLEMENTED',
-        message: 'Worker execution via startWorker() is not yet implemented.',
-        hint: 'Worker functionality arrives in Phase 5. Phase 4 provides queue producers and enqueue-time rendering.',
-      });
+    startWorker(opts?: StartWorkerOptions): void {
+      workerManager.start(opts);
+    },
+
+    async stopWorker(): Promise<void> {
+      await workerManager.stop();
     },
   };
 }

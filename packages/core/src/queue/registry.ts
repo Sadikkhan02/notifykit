@@ -89,4 +89,11 @@ export class QueueRegistry {
     await Promise.all(closePromises);
     this.queuesByChannel.clear();
   }
+
+  /**
+   * Retrieves the underlying Redis connection instance used by this registry.
+   */
+  getConnection(): Redis {
+    return this.connection;
+  }
 }

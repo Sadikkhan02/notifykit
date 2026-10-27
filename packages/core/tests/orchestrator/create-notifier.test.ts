@@ -100,18 +100,21 @@ describe('createNotifier() Factory Contract', () => {
     expect(enqueued[0].renderedBody).toBe('Hello, World!');
   });
 
-  it('startWorker() stub throws E_NOT_IMPLEMENTED indicating Phase 5', () => {
-    const notifier = createNotifier();
+  it('supports startWorker() and stopWorker() lifecycle on Notifier instance', async () => {
+    const notifier = createNotifier({
+      providers: {
+        email: {
+          type: 'nodemailer',
+          adapter: { name: 'nodemailer', sendEmail: () => Promise.resolve({ success: true }) },
+        },
+      },
+    });
 
-    try {
-      notifier.startWorker();
-      expect.unreachable('Should have thrown');
-    } catch (err) {
-      expect(err).toBeInstanceOf(NotifyKitError);
-      const error = err as NotifyKitError;
-      expect(error.code).toBe('E_NOT_IMPLEMENTED');
-      expect(error.hint).toContain('Phase 5');
-    }
+    expect(typeof notifier.startWorker).toBe('function');
+    expect(typeof notifier.stopWorker).toBe('function');
+
+    expect(() => notifier.startWorker()).not.toThrow();
+    await expect(notifier.stopWorker()).resolves.toBeUndefined();
   });
 
   it('clean shutdown is achievable via resetDefaultRegistry() and closeRedisConnection()', async () => {

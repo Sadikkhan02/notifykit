@@ -12,7 +12,7 @@ export interface EnqueueConfig {
 
 let defaultRegistry: QueueRegistry | null = null;
 
-function getOrCreateDefaultRegistry(redisUrl?: string): QueueRegistry {
+export function getOrCreateDefaultRegistry(redisUrl?: string): QueueRegistry {
   if (!defaultRegistry) {
     const connection = createRedisConnection(redisUrl);
     defaultRegistry = new QueueRegistry(connection);
