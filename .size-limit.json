@@ -8,5 +8,10 @@
     "name": "@notifykit/adapter-nodemailer",
     "path": "packages/adapter-nodemailer/dist/index.js",
     "limit": "10 KB"
+  },
+  {
+    "name": "@notifykit/adapter-twilio",
+    "path": "packages/adapter-twilio/dist/index.js",
+    "limit": "10 KB"
   }
 ]
