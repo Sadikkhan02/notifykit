@@ -3,5 +3,10 @@
     "name": "notifykit (core)",
     "path": "packages/core/dist/index.js",
     "limit": "60 KB"
+  },
+  {
+    "name": "@notifykit/adapter-nodemailer",
+    "path": "packages/adapter-nodemailer/dist/index.js",
+    "limit": "10 KB"
   }
 ]
