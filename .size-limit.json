@@ -13,5 +13,10 @@
     "name": "@notifykit/adapter-twilio",
     "path": "packages/adapter-twilio/dist/index.js",
     "limit": "10 KB"
+  },
+  {
+    "name": "@notifykit/adapter-msg91",
+    "path": "packages/adapter-msg91/dist/index.js",
+    "limit": "10 KB"
   }
 ]

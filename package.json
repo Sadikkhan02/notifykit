@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces",
-    "test:coverage": "npm run test:coverage --workspace=packages/core && npm run test:coverage --workspace=packages/cli && npm run test:coverage --workspace=packages/adapter-nodemailer && npm run test:coverage --workspace=packages/adapter-twilio",
+    "test:coverage": "npm run test:coverage --workspace=packages/core && npm run test:coverage --workspace=packages/cli && npm run test:coverage --workspace=packages/adapter-nodemailer && npm run test:coverage --workspace=packages/adapter-twilio && npm run test:coverage --workspace=packages/adapter-msg91",
     "lint": "eslint .",
     "typecheck": "npm run typecheck --workspaces",
     "format": "prettier --write .",
