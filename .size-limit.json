@@ -18,5 +18,10 @@
     "name": "@notifykit/adapter-msg91",
     "path": "packages/adapter-msg91/dist/index.js",
     "limit": "10 KB"
+  },
+  {
+    "name": "@notifykit/adapter-fcm",
+    "path": "packages/adapter-fcm/dist/index.js",
+    "limit": "10 KB"
   }
 ]
