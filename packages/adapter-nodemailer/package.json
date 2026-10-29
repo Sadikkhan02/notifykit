@@ -44,7 +44,7 @@
     "nodemailer": "^6.9.16",
     "notifykit": "^1.0.0",
     "tsup": "^9.0.0",
-    "typescript": "~6.0.3",
+    "typescript": "~7.0.2",
     "vitest": "^5.0.5"
   },
   "engines": {
