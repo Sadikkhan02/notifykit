@@ -41,7 +41,7 @@
   "devDependencies": {
     "@notifykit/test-utils": "^1.0.0",
     "@types/nodemailer": "^6.4.17",
-    "nodemailer": "^6.9.16",
+    "nodemailer": "^10.2.1",
     "notifykit": "^1.0.0",
     "tsup": "^9.0.0",
     "typescript": "~6.0.3",
