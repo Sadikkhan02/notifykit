@@ -4,7 +4,8 @@
     "rootDir": "../../",
     "paths": {
       "notifykit/interfaces": ["../core/src/interfaces/index.ts"],
-      "notifykit": ["../core/src/index.ts"]
+      "notifykit": ["../core/src/index.ts"],
+      "@notifykit/test-utils": ["../test-utils/src/index.ts"]
     }
   },
   "include": ["src/**/*"]

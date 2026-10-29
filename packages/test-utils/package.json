@@ -2,16 +2,45 @@
   "name": "@notifykit/test-utils",
   "version": "0.0.1",
   "type": "module",
+  "sideEffects": false,
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
+  "peerDependencies": {
+    "notifykit": ">=0.0.1",
+    "vitest": ">=1.0.0 || >=2.0.0 || >=3.0.0 || >=4.0.0 || >=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "notifykit": {
+      "optional": false
+    },
+    "vitest": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "notifykit": "*",
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5"
+  },
   "engines": {
     "node": ">=20.0.0"
   }

@@ -33,6 +33,7 @@
     }
   },
   "devDependencies": {
+    "@notifykit/test-utils": "*",
     "@types/node": "^26.6.5",
     "notifykit": "*",
     "tsup": "^9.0.0",

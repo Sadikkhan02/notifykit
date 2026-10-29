@@ -37,6 +37,7 @@
     }
   },
   "devDependencies": {
+    "@notifykit/test-utils": "*",
     "@types/nodemailer": "^6.4.17",
     "nodemailer": "^6.9.16",
     "notifykit": "*",

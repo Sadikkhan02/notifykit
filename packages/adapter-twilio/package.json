@@ -37,6 +37,7 @@
     }
   },
   "devDependencies": {
+    "@notifykit/test-utils": "*",
     "notifykit": "*",
     "tsup": "^9.0.0",
     "twilio": "^5.4.3",

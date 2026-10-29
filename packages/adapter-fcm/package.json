@@ -37,6 +37,7 @@
     }
   },
   "devDependencies": {
+    "@notifykit/test-utils": "*",
     "@types/node": "^26.6.5",
     "firebase-admin": "^13.1.0",
     "notifykit": "*",
