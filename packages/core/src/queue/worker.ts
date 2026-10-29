@@ -167,7 +167,7 @@ export async function processNotificationJob(
     throw new UnrecoverableError(validationError.message);
   }
 
-  const validJob = validationResult.data;
+  const validJob = validationResult.data as NotificationJob;
   const traceId = validJob.metadata?.traceId ?? 'unknown-trace';
   const scopedLogger = createScopedLogger(
     {
@@ -389,6 +389,11 @@ export class WorkerManager {
           registry: this.registry,
           logger: this.logger,
         });
+        if (typeof worker?.on === 'function') {
+          worker.on('error', (err) => {
+            this.logger?.warn({ err, channel }, 'Worker encountered background connection error');
+          });
+        }
         constructed.push(worker);
         this.activeWorkers.set(channel, worker);
       }

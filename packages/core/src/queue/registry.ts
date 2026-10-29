@@ -1,5 +1,6 @@
 import { Queue } from 'bullmq';
 import type { Redis } from 'ioredis';
+import { NotifyKitError } from '../errors/notifykit-error.js';
 import type { NotificationJob, QueueChannel } from './payload';
 
 export type LogicalQueueName = `notifykit:${QueueChannel | 'dlq'}`;
@@ -65,7 +66,11 @@ export class QueueRegistry {
     const channel = this.resolveChannel(channelOrLogicalName);
     const queue = this.queuesByChannel.get(channel);
     if (!queue) {
-      throw new Error(`Queue for channel "${channelOrLogicalName}" is not registered`);
+      throw new NotifyKitError({
+        code: 'E_QUEUE_NOT_REGISTERED',
+        message: `Queue for channel "${channelOrLogicalName}" is not registered.`,
+        hint: `Specify a valid registered channel ('email', 'sms', 'push', or 'dlq') or logical name (e.g. 'notifykit:email').`,
+      });
     }
     return queue;
   }

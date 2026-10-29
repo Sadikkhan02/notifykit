@@ -14,7 +14,8 @@
     "typecheck": "npm run typecheck --workspaces",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "size-limit": "size-limit"
+    "size-limit": "size-limit",
+    "benchmark": "npx tsx benchmarks/load-test.ts"
   },
   "engines": {
     "node": ">=20.0.0",

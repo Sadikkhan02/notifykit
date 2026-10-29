@@ -10,6 +10,9 @@ import {
 
 describe('createNotifier() Factory Contract', () => {
   it('initializes in < 50ms and returns { notify, registerTemplate, startWorker }', () => {
+    // Warm up factory evaluation to ensure clean measurement under coverage
+    createNotifier({ providers: { email: { type: 'nodemailer' } } });
+
     const start = performance.now();
     const notifier = createNotifier({
       providers: {

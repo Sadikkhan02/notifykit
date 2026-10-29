@@ -38,7 +38,15 @@ export async function dispatchJob(
     options?.logger,
   );
 
-  scopedLogger.debug({ job }, 'Dispatching notification job to adapter');
+  scopedLogger.debug(
+    {
+      jobId: job.id,
+      channel: job.channel,
+      provider: job.provider,
+      templateId: job.templateId,
+    },
+    'Dispatching notification job to adapter',
+  );
 
   // Resolve adapter for target channel
   const resolvedMap = resolveChannelAdapters(

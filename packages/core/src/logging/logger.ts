@@ -17,6 +17,7 @@ export interface LogBindings {
 
 const SENSITIVE_KEYWORDS = [
   'password',
+  'pass',
   'secret',
   'token',
   'key',
@@ -26,26 +27,42 @@ const SENSITIVE_KEYWORDS = [
   'auth_key',
   'authToken',
   'auth_token',
+  'access_token',
+  'accessToken',
+  'refreshToken',
+  'refresh_token',
+  'secretKey',
+  'secret_key',
+  'clientSecret',
+  'client_secret',
+  'privateKey',
+  'private_key',
+  'privateKeyId',
+  'private_key_id',
   'authorization',
   'accountSid',
   'account_sid',
-  'privateKey',
-  'private_key',
+  'credential',
+  'credentials',
   'PASSWORD',
   'SECRET',
   'TOKEN',
   'KEY',
   'API_KEY',
   'AUTH_TOKEN',
+  'ACCESS_TOKEN',
+  'SECRET_KEY',
+  'PRIVATE_KEY',
+  'AUTHORIZATION',
 ];
 
 /**
- * Builds fast-redact paths supporting root up to 4 levels of nesting.
+ * Builds fast-redact paths supporting root up to 5 levels of nesting.
  */
 function buildRedactPaths(keywords: string[]): string[] {
   const paths: string[] = [];
   for (const kw of keywords) {
-    paths.push(kw, `*.${kw}`, `*.*.${kw}`, `*.*.*.${kw}`, `*.*.*.*.${kw}`);
+    paths.push(kw, `*.${kw}`, `*.*.${kw}`, `*.*.*.${kw}`, `*.*.*.*.${kw}`, `*.*.*.*.*.${kw}`);
   }
   return paths;
 }

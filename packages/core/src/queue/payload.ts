@@ -51,14 +51,12 @@ export interface NotificationJob {
  */
 export const notificationJobSchema = z.object({
   id: z.string().min(1, 'Job ID cannot be empty'),
-  channel: z.enum(['email', 'sms', 'push'], {
-    errorMap: () => ({ message: 'Channel must be "email", "sms", or "push"' }),
-  }),
+  channel: z.enum(['email', 'sms', 'push']),
   provider: z.string().min(1, 'Provider identifier cannot be empty'),
   to: recipientSchema,
   templateId: z.string().min(1, 'templateId cannot be empty'),
   renderedBody: z.string(),
-  variables: z.record(z.string()).optional(),
+  variables: z.record(z.string(), z.string()).optional(),
   metadata: z.object({
     enqueuedAt: z.number().int().positive(),
     userId: z.string().optional(),

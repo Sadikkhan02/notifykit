@@ -17,7 +17,7 @@ export const notificationEventSchema = z.object({
     .array(channelEnum)
     .min(1, 'At least one channel must be specified in "channels" array'),
   template: z.string().min(1, 'Template identifier "template" is required'),
-  data: z.record(z.unknown()),
+  data: z.record(z.string(), z.unknown()),
 });
 
 export type NotificationEventInput = z.infer<typeof notificationEventSchema>;
