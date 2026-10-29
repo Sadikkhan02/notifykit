@@ -1,0 +1,16 @@
+{
+  "name": "example-sms-only",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "notifykit": "*",
+    "@notifykit/adapter-twilio": "*",
+    "twilio": "^5.4.0",
+    "@notifykit/adapter-msg91": "*"
+  }
+}

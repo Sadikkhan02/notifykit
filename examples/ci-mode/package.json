@@ -1,0 +1,16 @@
+{
+  "name": "example-ci-mode",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx index.ts",
+    "typecheck": "tsc --noEmit",
+    "ci": "bash run-ci.sh"
+  },
+  "dependencies": {
+    "notifykit": "*",
+    "notifykit-cli": "*",
+    "@notifykit/test-utils": "*"
+  }
+}
