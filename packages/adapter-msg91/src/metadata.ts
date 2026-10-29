@@ -9,8 +9,8 @@ export const metadata: Msg91AdapterMetadata = {
   name: 'msg91',
   channel: 'sms',
   requiredEnv: ['MSG91_AUTH_KEY', 'MSG91_FLOW_ID'],
-  version: '0.0.1',
+  version: '1.0.0',
   peerDependencies: {
-    notifykit: '>=0.0.1',
+    notifykit: '^1.0.0',
   },
 };

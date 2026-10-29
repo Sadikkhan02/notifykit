@@ -9,9 +9,9 @@ export const metadata: FcmAdapterMetadata = {
   name: 'fcm',
   channel: 'push',
   requiredEnv: ['FCM_SERVICE_ACCOUNT_JSON'],
-  version: '0.0.1',
+  version: '1.0.0',
   peerDependencies: {
-    notifykit: '>=0.0.1',
+    notifykit: '^1.0.0',
     'firebase-admin': '>=11.0.0',
   },
 };

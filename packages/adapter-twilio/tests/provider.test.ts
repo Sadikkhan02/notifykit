@@ -41,9 +41,9 @@ describe('Twilio SMS Adapter', () => {
       expect(coreMetadata.name).toBe('twilio');
       expect(coreMetadata.channel).toBe('sms');
       expect(coreMetadata.requiredEnv).toEqual(['TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN']);
-      expect(metadata.version).toBe('0.0.1');
+      expect(metadata.version).toBe('1.0.0');
       expect(metadata.peerDependencies).toEqual({
-        notifykit: '>=0.0.1',
+        notifykit: '^1.0.0',
         twilio: '>=4.0.0',
       });
     });

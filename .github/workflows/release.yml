@@ -1,0 +1,73 @@
+name: Release Validation
+
+# This workflow verifies release readiness and tarball packaging integrity.
+# Under no circumstances does this workflow publish packages or push tags automatically.
+# All npm publishing is strictly human-controlled from a local terminal.
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  packages: none
+
+jobs:
+  validate-release:
+    name: Verify Release Packaging & Compatibility
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x, 24.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Formatting
+        run: npm run format:check
+
+      - name: Lint Codebase
+        run: npm run lint
+
+      - name: Typecheck Monorepo
+        run: npm run typecheck
+
+      - name: Build Packages & Type Declarations
+        run: npm run build
+
+      - name: Run Test Suite
+        run: npm test
+
+      - name: Verify Bundle Size Limits
+        run: npm run size-limit
+
+      - name: Security Audit (Production Dependencies)
+        run: npm audit --omit=dev
+
+      - name: Verify Package Tarballs (Dry Run)
+        run: |
+          echo "Verifying package tarball packing for all 7 workspaces..."
+          for pkg in core cli test-utils adapter-nodemailer adapter-twilio adapter-msg91 adapter-fcm; do
+            echo "--- Checking package: $pkg ---"
+            npm pack --dry-run --workspace=packages/$pkg
+          done
+
+      - name: Confirm Release Safety
+        run: |
+          echo "=========================================================="
+          echo "Release validation PASSED on Node.js ${{ matrix.node-version }}."
+          echo "NOTE: Publishing to npm is human-controlled from local CLI."
+          echo "Registry mutations are never automated in CI."
+          echo "=========================================================="

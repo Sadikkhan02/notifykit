@@ -9,9 +9,9 @@ export const metadata: TwilioAdapterMetadata = {
   name: 'twilio',
   channel: 'sms',
   requiredEnv: ['TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN'],
-  version: '0.0.1',
+  version: '1.0.0',
   peerDependencies: {
-    notifykit: '>=0.0.1',
+    notifykit: '^1.0.0',
     twilio: '>=4.0.0',
   },
 };

@@ -1,7 +1,10 @@
 {
   "name": "notifykit-cli",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Interactive setup wizard and CLI generator for NotifyKit",
+  "license": "MIT",
   "type": "module",
+  "sideEffects": false,
   "bin": {
     "notifykit": "./dist/index.js",
     "notifykit-cli": "./dist/index.js"
@@ -15,7 +18,9 @@
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=20.0.0"

@@ -60,9 +60,9 @@ describe('FCM Push Adapter', () => {
       expect(coreMetadata.name).toBe('fcm');
       expect(coreMetadata.channel).toBe('push');
       expect(coreMetadata.requiredEnv).toEqual(['FCM_SERVICE_ACCOUNT_JSON']);
-      expect(metadata.version).toBe('0.0.1');
+      expect(metadata.version).toBe('1.0.0');
       expect(metadata.peerDependencies).toEqual({
-        notifykit: '>=0.0.1',
+        notifykit: '^1.0.0',
         'firebase-admin': '>=11.0.0',
       });
     });

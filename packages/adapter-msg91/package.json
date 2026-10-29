@@ -1,6 +1,8 @@
 {
   "name": "@notifykit/adapter-msg91",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "MSG91 SMS provider adapter for NotifyKit",
+  "license": "MIT",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.cjs",
@@ -25,7 +27,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "notifykit": ">=0.0.1"
+    "notifykit": "^1.0.0"
   },
   "peerDependenciesMeta": {
     "notifykit": {
@@ -33,9 +35,9 @@
     }
   },
   "devDependencies": {
-    "@notifykit/test-utils": "*",
+    "@notifykit/test-utils": "^1.0.0",
     "@types/node": "^26.6.5",
-    "notifykit": "*",
+    "notifykit": "^1.0.0",
     "tsup": "^9.0.0",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5"

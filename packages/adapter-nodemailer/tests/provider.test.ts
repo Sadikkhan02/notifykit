@@ -42,9 +42,9 @@ describe('NodemailerEmailProvider', () => {
         'SMTP_USER',
         'SMTP_PASSWORD',
       ]);
-      expect(metadata.version).toBe('0.0.1');
+      expect(metadata.version).toBe('1.0.0');
       expect(metadata.peerDependencies).toEqual({
-        notifykit: '>=0.0.1',
+        notifykit: '^1.0.0',
         nodemailer: '>=6.9.0',
       });
     });

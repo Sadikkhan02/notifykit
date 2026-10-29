@@ -38,9 +38,9 @@ describe('MSG91 SMS Adapter', () => {
       expect(coreMetadata.name).toBe('msg91');
       expect(coreMetadata.channel).toBe('sms');
       expect(coreMetadata.requiredEnv).toEqual(['MSG91_AUTH_KEY', 'MSG91_FLOW_ID']);
-      expect(metadata.version).toBe('0.0.1');
+      expect(metadata.version).toBe('1.0.0');
       expect(metadata.peerDependencies).toEqual({
-        notifykit: '>=0.0.1',
+        notifykit: '^1.0.0',
       });
     });
 

@@ -5,7 +5,7 @@ import * as nonInteractiveModule from '../src/non-interactive.js';
 
 describe('CLI main entrypoint', () => {
   it('exports valid cliVersion and HELP_TEXT', () => {
-    expect(cliVersion).toBe('0.0.1');
+    expect(cliVersion).toBe('1.0.0');
     expect(HELP_TEXT).toContain('NotifyKit CLI - Setup Wizard');
   });
 
@@ -14,7 +14,7 @@ describe('CLI main entrypoint', () => {
 
     const code1 = await main(['--version']);
     expect(code1).toBe(0);
-    expect(logSpy).toHaveBeenCalledWith('notifykit-cli v0.0.1');
+    expect(logSpy).toHaveBeenCalledWith('notifykit-cli v1.0.0');
 
     const code2 = await main(['-v']);
     expect(code2).toBe(0);

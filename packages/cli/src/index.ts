@@ -4,7 +4,7 @@ import { runInteractiveWizard } from './interactive.js';
 import { runNonInteractive } from './non-interactive.js';
 import type { CliOptions } from './types.js';
 
-export const cliVersion = '0.0.1';
+export const cliVersion = '1.0.0';
 
 export const HELP_TEXT = `
 NotifyKit CLI - Setup Wizard
@@ -183,10 +183,13 @@ export async function main(argv: string[] = process.argv.slice(2)): Promise<numb
 }
 
 // Auto-run if executed directly via CLI
-if (process.argv[1] && process.argv[1].endsWith('dist/index.js')) {
+if (
+  process.argv[1] &&
+  (process.argv[1].endsWith('dist/index.js') || process.argv[1].endsWith('notifykit-cli'))
+) {
   main()
     .then((code) => {
-      if (code !== 0) {
+      if (typeof code === 'number' && code !== 0) {
         process.exit(code);
       }
     })

@@ -9,9 +9,9 @@ export const metadata: NodemailerAdapterMetadata = {
   name: 'nodemailer',
   channel: 'email',
   requiredEnv: ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASSWORD'],
-  version: '0.0.1',
+  version: '1.0.0',
   peerDependencies: {
-    notifykit: '>=0.0.1',
+    notifykit: '^1.0.0',
     nodemailer: '>=6.9.0',
   },
 };

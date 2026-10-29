@@ -2,7 +2,17 @@
   "$schema": "https://unpkg.com/@changesets/config/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "fixed": [],
+  "fixed": [
+    [
+      "notifykit",
+      "@notifykit/adapter-nodemailer",
+      "@notifykit/adapter-twilio",
+      "@notifykit/adapter-msg91",
+      "@notifykit/adapter-fcm",
+      "notifykit-cli",
+      "@notifykit/test-utils"
+    ]
+  ],
   "linked": [],
   "access": "public",
   "baseBranch": "main"
