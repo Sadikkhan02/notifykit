@@ -45,7 +45,7 @@
     "handlebars": "^4.7.8",
     "ioredis": "^5.5.0",
     "notifykit-cli": "^1.0.0",
-    "pino": "^9.14.0",
+    "pino": "^10.4.0",
     "zod": "^4.6.7"
   },
   "engines": {
