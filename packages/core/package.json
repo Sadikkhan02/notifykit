@@ -41,7 +41,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "bullmq": "^5.41.0",
+    "bullmq": "^6.5.0",
     "handlebars": "^4.7.8",
     "ioredis": "^5.5.0",
     "notifykit-cli": "^1.0.0",
