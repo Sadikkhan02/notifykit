@@ -1,6 +1,6 @@
 # NotifyKit Email-Only Example
 
-This example demonstrates single-channel email delivery using the `@notifykit/adapter-nodemailer` adapter.
+This example demonstrates single-channel email delivery using the `@sadikkhan02/adapter-nodemailer` adapter.
 
 ---
 

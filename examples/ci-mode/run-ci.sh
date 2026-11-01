@@ -4,7 +4,7 @@ set -euo pipefail
 echo "=== NotifyKit CI Setup Wizard (Non-Interactive / Dry-Run) ==="
 
 # Execute non-interactive CLI wizard with --dry-run to verify zero credential leakage
-npx notifykit init \
+npx @sadikkhan02/notifykit init \
   --channels=email,sms \
   --email=nodemailer \
   --sms=twilio \

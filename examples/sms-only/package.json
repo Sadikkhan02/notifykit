@@ -8,9 +8,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "notifykit": "*",
-    "@notifykit/adapter-twilio": "*",
+    "@sadikkhan02/notifykit": "*",
+    "@sadikkhan02/adapter-twilio": "*",
     "twilio": "^5.4.0",
-    "@notifykit/adapter-msg91": "*"
+    "@sadikkhan02/adapter-msg91": "*"
   }
 }

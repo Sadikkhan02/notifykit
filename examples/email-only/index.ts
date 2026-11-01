@@ -5,8 +5,8 @@ import {
   resetDefaultRegistry,
   closeRedisConnection,
   type Notifier,
-} from 'notifykit';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
+} from '@sadikkhan02/notifykit';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
 
 async function main() {
   const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';

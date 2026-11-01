@@ -1,4 +1,4 @@
-# @notifykit/adapter-fcm
+# @sadikkhan02/adapter-fcm
 
 ## 1.0.0
 

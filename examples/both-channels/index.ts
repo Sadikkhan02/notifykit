@@ -5,10 +5,10 @@ import {
   resetDefaultRegistry,
   closeRedisConnection,
   type Notifier,
-} from 'notifykit';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
-import { TwilioSmsProvider } from '@notifykit/adapter-twilio';
-import { FcmPushProvider } from '@notifykit/adapter-fcm';
+} from '@sadikkhan02/notifykit';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
+import { TwilioSmsProvider } from '@sadikkhan02/adapter-twilio';
+import { FcmPushProvider } from '@sadikkhan02/adapter-fcm';
 
 async function main() {
   const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';

@@ -5,9 +5,9 @@ import {
   resetDefaultRegistry,
   closeRedisConnection,
   type Notifier,
-} from 'notifykit';
-import type { ProviderResult } from 'notifykit/interfaces';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
+} from '@sadikkhan02/notifykit';
+import type { ProviderResult } from '@sadikkhan02/notifykit/interfaces';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
 
 // --- Shared Global Shutdown State ---
 let shutdownPromise: Promise<void> | null = null;

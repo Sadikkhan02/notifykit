@@ -5,9 +5,9 @@ import {
   resetDefaultRegistry,
   closeRedisConnection,
   type Notifier,
-} from 'notifykit';
-import type { ProviderResult } from 'notifykit/interfaces';
-import { FcmPushProvider } from '@notifykit/adapter-fcm';
+} from '@sadikkhan02/notifykit';
+import type { ProviderResult } from '@sadikkhan02/notifykit/interfaces';
+import { FcmPushProvider } from '@sadikkhan02/adapter-fcm';
 
 // --- Shared Global Shutdown State ---
 let shutdownPromise: Promise<void> | null = null;

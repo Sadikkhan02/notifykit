@@ -6,7 +6,7 @@ This example demonstrates single-channel SMS delivery supporting both **Twilio**
 
 ## What This Example Demonstrates
 
-1. **Provider Flexibility:** Toggling between `@notifykit/adapter-twilio` and `@notifykit/adapter-msg91`.
+1. **Provider Flexibility:** Toggling between `@sadikkhan02/adapter-twilio` and `@sadikkhan02/adapter-msg91`.
 2. **E.164 Phone Normalization:** Strict validation of recipient phone numbers.
 3. **Template Compilation:** Rendering SMS text with variable placeholders.
 4. **Enqueue vs Delivery:** Pre-rendering into Redis and asynchronous delivery.

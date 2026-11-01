@@ -235,7 +235,7 @@ describe('CLI Prompts Modules', () => {
             TWILIO_AUTH_TOKEN: 'plain_secret_token',
           },
         },
-        ['notifykit', '@notifykit/adapter-nodemailer'],
+        ['@sadikkhan02/notifykit', '@sadikkhan02/adapter-nodemailer'],
         '/test/dir',
       );
 
@@ -259,10 +259,10 @@ describe('CLI Prompts Modules', () => {
     it('displaySuccess prints success message and starter snippet', () => {
       const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
 
-      displaySuccess(['SMTP_HOST', 'REDIS_URL'], ['@notifykit/adapter-nodemailer']);
+      displaySuccess(['SMTP_HOST', 'REDIS_URL'], ['@sadikkhan02/adapter-nodemailer']);
       const allLogs = logSpy.mock.calls.map((c) => c[0]).join('\n');
       expect(allLogs).toContain('NotifyKit setup complete');
-      expect(allLogs).toContain('@notifykit/adapter-nodemailer');
+      expect(allLogs).toContain('@sadikkhan02/adapter-nodemailer');
 
       logSpy.mockRestore();
     });

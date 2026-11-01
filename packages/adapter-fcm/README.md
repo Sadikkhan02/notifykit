@@ -1,4 +1,4 @@
-# `@notifykit/adapter-fcm`
+# `@sadikkhan02/adapter-fcm`
 
 > Mobile & Web Push notification adapter for NotifyKit using Firebase Cloud Messaging (FCM).
 
@@ -9,7 +9,7 @@ This package delivers push notifications across Android, iOS (APNs through FCM),
 ## Installation
 
 ```bash
-npm install notifykit @notifykit/adapter-fcm firebase-admin
+npm install @sadikkhan02/notifykit @sadikkhan02/adapter-fcm firebase-admin
 ```
 
 > **Note:** `firebase-admin` is declared as an external peer dependency to allow consumers control over SDK version pinning, Google Cloud environment authentication, and Firebase App pooling.
@@ -42,8 +42,8 @@ The adapter resolves service account credentials in the following order:
 ## Usage
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { FcmPushProvider } from '@notifykit/adapter-fcm';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { FcmPushProvider } from '@sadikkhan02/adapter-fcm';
 
 const pushProvider = new FcmPushProvider({
   // Can be an object, JSON string, or file path:

@@ -57,13 +57,13 @@ Install the core library and the specific adapter(s) you need:
 
 ```bash
 # Core orchestrator
-npm install notifykit
+npm install @sadikkhan02/notifykit
 
 # Choose your provider adapters:
-npm install @notifykit/adapter-nodemailer nodemailer
-npm install @notifykit/adapter-twilio twilio
-npm install @notifykit/adapter-msg91
-npm install @notifykit/adapter-fcm firebase-admin
+npm install @sadikkhan02/adapter-nodemailer nodemailer
+npm install @sadikkhan02/adapter-twilio twilio
+npm install @sadikkhan02/adapter-msg91
+npm install @sadikkhan02/adapter-fcm firebase-admin
 ```
 
 ---
@@ -73,9 +73,9 @@ npm install @notifykit/adapter-fcm firebase-admin
 Create an application entry point (e.g. `notifier.ts`):
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
-import { TwilioSmsProvider } from '@notifykit/adapter-twilio';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
+import { TwilioSmsProvider } from '@sadikkhan02/adapter-twilio';
 
 export const notifier = createNotifier({
   redis: process.env.REDIS_URL || 'redis://localhost:6379',
@@ -226,5 +226,5 @@ process.on('SIGTERM', () => handleShutdown('SIGTERM'));
 - **[Architecture Deep-Dive](architecture.md):** Understand the queue topology, retry mechanics, and Dead-Letter Queue (DLQ).
 - **[Provider Guides](providers.md):** Detailed configuration and regulatory instructions for Nodemailer, Twilio, MSG91, and FCM.
 - **[Troubleshooting Guide](troubleshooting.md):** Common errors, Redis issues, and recovery recipes.
-- **[Creating Custom Adapters](adapters.md):** How to write your own provider adapter using `@notifykit/test-utils`.
+- **[Creating Custom Adapters](adapters.md):** How to write your own provider adapter using `@sadikkhan02/test-utils`.
 - **[Redis Data Model](redis.md):** Complete reference of Redis key layouts and retention policies.

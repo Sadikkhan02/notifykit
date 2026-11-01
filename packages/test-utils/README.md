@@ -1,4 +1,4 @@
-# `@notifykit/test-utils`
+# `@sadikkhan02/test-utils`
 
 The official test utilities and adapter contract testing framework for **NotifyKit**.
 
@@ -9,7 +9,7 @@ Provides shared fixtures, in-memory mock providers, safe local Redis helpers, an
 ## Installation
 
 ```bash
-npm install --save-dev @notifykit/test-utils vitest
+npm install --save-dev @sadikkhan02/test-utils vitest
 ```
 
 ---
@@ -22,7 +22,7 @@ Every NotifyKit adapter (email, SMS, push) must conform to the standard provider
 
 ```typescript
 import { describe, it, expect, vi } from 'vitest';
-import { runAdapterContractTests } from '@notifykit/test-utils';
+import { runAdapterContractTests } from '@sadikkhan02/test-utils';
 import { MyEmailProvider, metadata } from '../src/index.js';
 
 runAdapterContractTests({
@@ -69,7 +69,7 @@ import {
   createMockEmailProvider,
   createMockSmsProvider,
   createMockPushProvider,
-} from '@notifykit/test-utils';
+} from '@sadikkhan02/test-utils';
 
 const mockEmail = createMockEmailProvider({ name: 'test-smtp' });
 const mockSms = createMockSmsProvider({ name: 'test-sms' });
@@ -101,7 +101,7 @@ import {
   createTestRecipient,
   createTestNotificationJob,
   createMockProviderResult,
-} from '@notifykit/test-utils';
+} from '@sadikkhan02/test-utils';
 
 const emailRecipient = createTestRecipient('email', { email: 'custom@example.com' });
 const smsRecipient = createTestRecipient('sms');
@@ -120,7 +120,7 @@ const job = createTestNotificationJob('email', {
 When running integration tests with real Redis, prevent accidental execution against remote or production instances:
 
 ```typescript
-import { isSafeLocalRedisUrl, cleanupTestRedis } from '@notifykit/test-utils';
+import { isSafeLocalRedisUrl, cleanupTestRedis } from '@sadikkhan02/test-utils';
 
 // Fails closed if REDIS_URL is not 127.0.0.1 or localhost
 await cleanupTestRedis();

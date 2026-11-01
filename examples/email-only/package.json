@@ -8,8 +8,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "notifykit": "*",
-    "@notifykit/adapter-nodemailer": "*",
+    "@sadikkhan02/notifykit": "*",
+    "@sadikkhan02/adapter-nodemailer": "*",
     "nodemailer": "^6.9.16"
   }
 }

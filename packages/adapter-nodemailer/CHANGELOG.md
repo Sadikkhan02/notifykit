@@ -1,4 +1,4 @@
-# @notifykit/adapter-nodemailer
+# @sadikkhan02/adapter-nodemailer
 
 ## 1.0.0
 

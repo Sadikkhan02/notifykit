@@ -12,10 +12,10 @@ export const PROVIDER_NAMES: Record<Provider, string> = {
 };
 
 export const ADAPTER_PACKAGES: Record<Provider, string> = {
-  nodemailer: '@notifykit/adapter-nodemailer',
-  twilio: '@notifykit/adapter-twilio',
-  msg91: '@notifykit/adapter-msg91',
-  fcm: '@notifykit/adapter-fcm',
+  nodemailer: '@sadikkhan02/adapter-nodemailer',
+  twilio: '@sadikkhan02/adapter-twilio',
+  msg91: '@sadikkhan02/adapter-msg91',
+  fcm: '@sadikkhan02/adapter-fcm',
 };
 
 export const PEER_DEPENDENCIES: Record<Provider, string[]> = {

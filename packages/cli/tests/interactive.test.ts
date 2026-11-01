@@ -40,7 +40,7 @@ describe('CLI interactive wizard', () => {
 
     const installSpy = vi.spyOn(installerModule, 'installPackages').mockResolvedValueOnce({
       packageManager: 'npm',
-      packages: ['notifykit', '@notifykit/adapter-nodemailer', 'nodemailer'],
+      packages: ['@sadikkhan02/notifykit', '@sadikkhan02/adapter-nodemailer', 'nodemailer'],
       success: true,
     });
 

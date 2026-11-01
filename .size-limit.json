@@ -1,26 +1,26 @@
 [
   {
-    "name": "notifykit (core)",
+    "name": "@sadikkhan02/notifykit (core)",
     "path": "packages/core/dist/index.js",
     "limit": "60 KB"
   },
   {
-    "name": "@notifykit/adapter-nodemailer",
+    "name": "@sadikkhan02/adapter-nodemailer",
     "path": "packages/adapter-nodemailer/dist/index.js",
     "limit": "10 KB"
   },
   {
-    "name": "@notifykit/adapter-twilio",
+    "name": "@sadikkhan02/adapter-twilio",
     "path": "packages/adapter-twilio/dist/index.js",
     "limit": "10 KB"
   },
   {
-    "name": "@notifykit/adapter-msg91",
+    "name": "@sadikkhan02/adapter-msg91",
     "path": "packages/adapter-msg91/dist/index.js",
     "limit": "10 KB"
   },
   {
-    "name": "@notifykit/adapter-fcm",
+    "name": "@sadikkhan02/adapter-fcm",
     "path": "packages/adapter-fcm/dist/index.js",
     "limit": "10 KB"
   }

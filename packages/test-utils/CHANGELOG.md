@@ -1,4 +1,4 @@
-# @notifykit/test-utils
+# @sadikkhan02/test-utils
 
 ## 1.0.0
 

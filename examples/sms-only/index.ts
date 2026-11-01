@@ -5,9 +5,9 @@ import {
   resetDefaultRegistry,
   closeRedisConnection,
   type Notifier,
-} from 'notifykit';
-import { TwilioSmsProvider } from '@notifykit/adapter-twilio';
-import { Msg91SmsProvider } from '@notifykit/adapter-msg91';
+} from '@sadikkhan02/notifykit';
+import { TwilioSmsProvider } from '@sadikkhan02/adapter-twilio';
+import { Msg91SmsProvider } from '@sadikkhan02/adapter-msg91';
 
 async function main() {
   const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';

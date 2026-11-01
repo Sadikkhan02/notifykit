@@ -1,15 +1,15 @@
-# `@notifykit/adapter-twilio`
+# `@sadikkhan02/adapter-twilio`
 
 > Global SMS adapter for NotifyKit using Twilio Messaging API.
 
-This package provides an enterprise SMS transport for NotifyKit via Twilio. It implements the `SmsProvider` interface, supports alphanumeric senders and Messaging Service SIDs, normalizes E.164 phone numbers, and adheres to `@notifykit/test-utils` contract tests.
+This package provides an enterprise SMS transport for NotifyKit via Twilio. It implements the `SmsProvider` interface, supports alphanumeric senders and Messaging Service SIDs, normalizes E.164 phone numbers, and adheres to `@sadikkhan02/test-utils` contract tests.
 
 ---
 
 ## Installation
 
 ```bash
-npm install notifykit @notifykit/adapter-twilio twilio
+npm install @sadikkhan02/notifykit @sadikkhan02/adapter-twilio twilio
 ```
 
 > **Note:** `twilio` is declared as an external peer dependency to allow consumers control over SDK version pinning and connection reuse.
@@ -34,8 +34,8 @@ _\* Either `TWILIO_FROM` or `TWILIO_MESSAGING_SERVICE_SID` must be configured (o
 ## Usage
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { TwilioSmsProvider } from '@notifykit/adapter-twilio';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { TwilioSmsProvider } from '@sadikkhan02/adapter-twilio';
 
 const smsProvider = new TwilioSmsProvider({
   accountSid: process.env.TWILIO_ACCOUNT_SID!,

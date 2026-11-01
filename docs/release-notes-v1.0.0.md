@@ -4,7 +4,7 @@ NotifyKit v1.0.0 is the first production release of the enterprise-ready transac
 
 ## Highlights
 
-- **Core Dispatch Engine (`notifykit`)**:
+- **Core Dispatch Engine (`@sadikkhan02/notifykit`)**:
   - High-throughput asynchronous notification pipeline powered by Redis BullMQ.
   - Multi-channel support (Email, SMS, Push) with built-in Handlebars templating.
   - Exponential backoff retries, dead letter queue (DLQ) isolation, and idempotency key tracking.
@@ -12,30 +12,30 @@ NotifyKit v1.0.0 is the first production release of the enterprise-ready transac
   - Proven performance: 700+ msg/sec throughput, dispatch p99 latency < 2.5 ms.
 
 - **Modular Provider Adapters**:
-  - `@notifykit/adapter-nodemailer`: Production SMTP email transport with TLS and attachment support.
-  - `@notifykit/adapter-twilio`: Twilio REST API SMS delivery with Messaging Service SID support.
-  - `@notifykit/adapter-msg91`: MSG91 Flow API SMS adapter with DLT template compliance.
-  - `@notifykit/adapter-fcm`: Firebase Cloud Messaging push notifications via Firebase Admin SDK.
+  - `@sadikkhan02/adapter-nodemailer`: Production SMTP email transport with TLS and attachment support.
+  - `@sadikkhan02/adapter-twilio`: Twilio REST API SMS delivery with Messaging Service SID support.
+  - `@sadikkhan02/adapter-msg91`: MSG91 Flow API SMS adapter with DLT template compliance.
+  - `@sadikkhan02/adapter-fcm`: Firebase Cloud Messaging push notifications via Firebase Admin SDK.
 
-- **Setup Wizard & CLI (`notifykit-cli` / `npx notifykit init`)**:
+- **Setup Wizard & CLI (`@sadikkhan02/notifykit-cli` / `npx @sadikkhan02/notifykit init`)**:
   - Interactive zero-config CLI setup wizard for instant project onboarding.
   - Headless/CI flags (`--yes`, `--channels`, `--email`, `--sms`, `--push`, `--skip-install`).
   - Automatic dependency installation and environment variable configuration in `.env`.
 
-- **Deterministic Testing Utilities (`@notifykit/test-utils`)**:
+- **Deterministic Testing Utilities (`@sadikkhan02/test-utils`)**:
   - Reusable adapter contract compliance test suite (`runAdapterContractTests`).
   - Deterministic in-memory mock providers for Email, SMS, and Push channels.
 
 ## Quickstart
 
 ```bash
-npm install notifykit
-npx notifykit init
+npm install @sadikkhan02/notifykit
+npx @sadikkhan02/notifykit init
 ```
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
 
 const notifier = createNotifier({
   email: new NodemailerEmailProvider({
@@ -60,13 +60,13 @@ await notifier.notify({
 
 | Package | Version | Description |
 |---|---|---|
-| `notifykit` | `1.0.0` | Core dispatch engine & BullMQ worker queue |
-| `notifykit-cli` | `1.0.0` | Interactive project setup wizard & CLI generator |
-| `@notifykit/adapter-nodemailer` | `1.0.0` | Nodemailer SMTP email provider adapter |
-| `@notifykit/adapter-twilio` | `1.0.0` | Twilio SMS provider adapter |
-| `@notifykit/adapter-msg91` | `1.0.0` | MSG91 Flow API SMS provider adapter |
-| `@notifykit/adapter-fcm` | `1.0.0` | Firebase Cloud Messaging push provider adapter |
-| `@notifykit/test-utils` | `1.0.0` | Adapter contract test suite & deterministic mocks |
+| `@sadikkhan02/notifykit` | `1.0.0` | Core dispatch engine & BullMQ worker queue |
+| `@sadikkhan02/notifykit-cli` | `1.0.0` | Interactive project setup wizard & CLI generator |
+| `@sadikkhan02/adapter-nodemailer` | `1.0.0` | Nodemailer SMTP email provider adapter |
+| `@sadikkhan02/adapter-twilio` | `1.0.0` | Twilio SMS provider adapter |
+| `@sadikkhan02/adapter-msg91` | `1.0.0` | MSG91 Flow API SMS provider adapter |
+| `@sadikkhan02/adapter-fcm` | `1.0.0` | Firebase Cloud Messaging push provider adapter |
+| `@sadikkhan02/test-utils` | `1.0.0` | Adapter contract test suite & deterministic mocks |
 
 ## Tarball Integrity & Checksum Verification
 

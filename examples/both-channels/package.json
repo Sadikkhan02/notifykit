@@ -8,12 +8,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "notifykit": "*",
-    "@notifykit/adapter-nodemailer": "*",
+    "@sadikkhan02/notifykit": "*",
+    "@sadikkhan02/adapter-nodemailer": "*",
     "nodemailer": "^6.9.16",
-    "@notifykit/adapter-twilio": "*",
+    "@sadikkhan02/adapter-twilio": "*",
     "twilio": "^5.4.0",
-    "@notifykit/adapter-fcm": "*",
+    "@sadikkhan02/adapter-fcm": "*",
     "firebase-admin": "^13.1.0"
   }
 }

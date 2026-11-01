@@ -53,7 +53,7 @@ describe('CLI installer', () => {
 
         const pkgs = resolvePackagesToInstall(tempDir, { email: 'nodemailer' });
         expect(pkgs).toContain('@sadikkhan02/notifykit');
-        expect(pkgs).toContain('@notifykit/adapter-nodemailer');
+        expect(pkgs).toContain('@sadikkhan02/adapter-nodemailer');
         expect(pkgs).toContain('nodemailer');
       } finally {
         fs.rmSync(tempDir, { recursive: true, force: true });
@@ -70,7 +70,7 @@ describe('CLI installer', () => {
 
         const pkgs = resolvePackagesToInstall(tempDir, { email: 'nodemailer' });
         expect(pkgs).not.toContain('@sadikkhan02/notifykit');
-        expect(pkgs).toContain('@notifykit/adapter-nodemailer');
+        expect(pkgs).toContain('@sadikkhan02/adapter-nodemailer');
         expect(pkgs).toContain('nodemailer');
       } finally {
         fs.rmSync(tempDir, { recursive: true, force: true });
@@ -87,7 +87,7 @@ describe('CLI installer', () => {
 
         const pkgs = resolvePackagesToInstall(tempDir, { email: 'nodemailer' });
         expect(pkgs).not.toContain('@sadikkhan02/notifykit');
-        expect(pkgs).toContain('@notifykit/adapter-nodemailer');
+        expect(pkgs).toContain('@sadikkhan02/adapter-nodemailer');
         expect(pkgs).toContain('nodemailer');
       } finally {
         fs.rmSync(tempDir, { recursive: true, force: true });
@@ -98,16 +98,16 @@ describe('CLI installer', () => {
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'notifykit-pkg-test-'));
       try {
         const twilioPkgs = resolvePackagesToInstall(tempDir, { sms: 'twilio' });
-        expect(twilioPkgs).toContain('@notifykit/adapter-twilio');
+        expect(twilioPkgs).toContain('@sadikkhan02/adapter-twilio');
         expect(twilioPkgs).toContain('twilio');
 
         const msg91Pkgs = resolvePackagesToInstall(tempDir, { sms: 'msg91' });
-        expect(msg91Pkgs).toContain('@notifykit/adapter-msg91');
+        expect(msg91Pkgs).toContain('@sadikkhan02/adapter-msg91');
         // MSG91 uses native fetch - no vendor SDK
         expect(msg91Pkgs).not.toContain('msg91');
 
         const fcmPkgs = resolvePackagesToInstall(tempDir, { push: 'fcm' });
-        expect(fcmPkgs).toContain('@notifykit/adapter-fcm');
+        expect(fcmPkgs).toContain('@sadikkhan02/adapter-fcm');
         expect(fcmPkgs).toContain('firebase-admin');
       } finally {
         fs.rmSync(tempDir, { recursive: true, force: true });
@@ -117,34 +117,37 @@ describe('CLI installer', () => {
 
   describe('buildInstallCommand', () => {
     it('builds npm install command', () => {
-      const cmd = buildInstallCommand('npm', ['notifykit', '@notifykit/adapter-twilio']);
+      const cmd = buildInstallCommand('npm', [
+        '@sadikkhan02/notifykit',
+        '@sadikkhan02/adapter-twilio',
+      ]);
       expect(cmd).toEqual({
         binary: 'npm',
-        args: ['install', 'notifykit', '@notifykit/adapter-twilio'],
+        args: ['install', '@sadikkhan02/notifykit', '@sadikkhan02/adapter-twilio'],
       });
     });
 
     it('builds pnpm add command', () => {
-      const cmd = buildInstallCommand('pnpm', ['notifykit']);
+      const cmd = buildInstallCommand('pnpm', ['@sadikkhan02/notifykit']);
       expect(cmd).toEqual({
         binary: 'pnpm',
-        args: ['add', 'notifykit'],
+        args: ['add', '@sadikkhan02/notifykit'],
       });
     });
 
     it('builds yarn add command', () => {
-      const cmd = buildInstallCommand('yarn', ['notifykit']);
+      const cmd = buildInstallCommand('yarn', ['@sadikkhan02/notifykit']);
       expect(cmd).toEqual({
         binary: 'yarn',
-        args: ['add', 'notifykit'],
+        args: ['add', '@sadikkhan02/notifykit'],
       });
     });
 
     it('builds bun add command', () => {
-      const cmd = buildInstallCommand('bun', ['notifykit']);
+      const cmd = buildInstallCommand('bun', ['@sadikkhan02/notifykit']);
       expect(cmd).toEqual({
         binary: 'bun',
-        args: ['add', 'notifykit'],
+        args: ['add', '@sadikkhan02/notifykit'],
       });
     });
   });
@@ -163,7 +166,7 @@ describe('CLI installer', () => {
         expect(result.packageManager).toBe('npm');
         expect(execaModule.execa).toHaveBeenCalledWith(
           'npm',
-          ['install', '@sadikkhan02/notifykit', '@notifykit/adapter-twilio', 'twilio'],
+          ['install', '@sadikkhan02/notifykit', '@sadikkhan02/adapter-twilio', 'twilio'],
           expect.objectContaining({ cwd: tempDir, stdio: 'inherit' }),
         );
       } finally {

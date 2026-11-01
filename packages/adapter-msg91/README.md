@@ -1,4 +1,4 @@
-# `@notifykit/adapter-msg91`
+# `@sadikkhan02/adapter-msg91`
 
 > India-optimized, TRAI/DLT compliant SMS adapter for NotifyKit using MSG91 Flow API.
 
@@ -9,7 +9,7 @@ This package provides a lightweight, enterprise SMS transport for NotifyKit usin
 ## Installation
 
 ```bash
-npm install notifykit @notifykit/adapter-msg91
+npm install @sadikkhan02/notifykit @sadikkhan02/adapter-msg91
 ```
 
 > **Zero Vendor SDK:** Uses Node's built-in `fetch` API. No third-party MSG91 SDK required.
@@ -31,8 +31,8 @@ npm install notifykit @notifykit/adapter-msg91
 ## Usage
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { Msg91SmsProvider } from '@notifykit/adapter-msg91';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { Msg91SmsProvider } from '@sadikkhan02/adapter-msg91';
 
 const smsProvider = new Msg91SmsProvider({
   authKey: process.env.MSG91_AUTH_KEY!,

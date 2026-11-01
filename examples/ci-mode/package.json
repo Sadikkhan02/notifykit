@@ -9,8 +9,8 @@
     "ci": "bash run-ci.sh"
   },
   "dependencies": {
-    "notifykit": "*",
-    "notifykit-cli": "*",
-    "@notifykit/test-utils": "*"
+    "@sadikkhan02/notifykit": "*",
+    "@sadikkhan02/notifykit-cli": "*",
+    "@sadikkhan02/test-utils": "*"
   }
 }

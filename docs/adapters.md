@@ -2,7 +2,7 @@
 
 This guide explains how to build and publish a production-grade provider adapter for NotifyKit — whether for email, SMS, or push notifications.
 
-Every NotifyKit adapter conforms to a standardized interface and must pass the **Adapter Contract Suite** provided by `@notifykit/test-utils`. Wiring a new adapter into the contract suite takes less than 30 minutes.
+Every NotifyKit adapter conforms to a standardized interface and must pass the **Adapter Contract Suite** provided by `@sadikkhan02/test-utils`. Wiring a new adapter into the contract suite takes less than 30 minutes.
 
 ---
 
@@ -16,13 +16,13 @@ A NotifyKit adapter is a lightweight package that bridges NotifyKit's queue work
 2. **Metadata**: Exports an `AdapterMetadata` object declaring the provider name, channel, and required environment variables.
 3. **Error Classification**: Maps vendor error codes and HTTP responses into standardized `ProviderResult` objects, classifying transient errors as `retryable: true` and permanent errors as `retryable: false`.
 4. **Credential Sanitization**: Strips passwords, API tokens, and authorization headers from all error messages before returning them.
-5. **Contract Conformance**: Passes the `@notifykit/test-utils` contract test suite.
+5. **Contract Conformance**: Passes the `@sadikkhan02/test-utils` contract test suite.
 
 ---
 
 ## 2. Core Interfaces
 
-All adapters import their contracts from `notifykit/interfaces`:
+All adapters import their contracts from `@sadikkhan02/notifykit/interfaces`:
 
 ```typescript
 import type {
@@ -31,7 +31,7 @@ import type {
   PushProvider,
   ProviderResult,
   AdapterMetadata,
-} from 'notifykit/interfaces';
+} from '@sadikkhan02/notifykit/interfaces';
 ```
 
 ### The Delivery Contracts
@@ -93,7 +93,7 @@ export interface ProviderResult {
 
 ### Step 1: Package Setup
 
-Create your adapter package with `@notifykit/test-utils` as a development dependency:
+Create your adapter package with `@sadikkhan02/test-utils` as a development dependency:
 
 ```json
 {
@@ -104,12 +104,12 @@ Create your adapter package with `@notifykit/test-utils` as a development depend
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "peerDependencies": {
-    "notifykit": ">=0.0.1",
+    "@sadikkhan02/notifykit": "^1.0.0",
     "postmark": ">=3.0.0"
   },
   "devDependencies": {
-    "@notifykit/test-utils": "*",
-    "notifykit": "*",
+    "@sadikkhan02/test-utils": "^1.0.0",
+    "@sadikkhan02/notifykit": "^1.0.0",
     "vitest": "^5.0.0"
   }
 }
@@ -119,7 +119,7 @@ Create your adapter package with `@notifykit/test-utils` as a development depend
 
 ```typescript
 // src/metadata.ts
-import type { AdapterMetadata } from 'notifykit/interfaces';
+import type { AdapterMetadata } from '@sadikkhan02/notifykit/interfaces';
 
 export const metadata: AdapterMetadata = {
   name: 'postmark',
@@ -222,7 +222,7 @@ The contract suite automatically runs 7 test suites validating your adapter agai
 ```typescript
 // tests/contract.test.ts
 import { vi } from 'vitest';
-import { runAdapterContractTests } from '@notifykit/test-utils';
+import { runAdapterContractTests } from '@sadikkhan02/test-utils';
 import { PostmarkEmailProvider, metadata } from '../src/index.js';
 
 runAdapterContractTests({

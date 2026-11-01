@@ -1,8 +1,8 @@
-# `notifykit` (Core)
+# `@sadikkhan02/notifykit` (Core)
 
 > Code-first, stateless notification orchestration library for Node.js and TypeScript.
 
-`notifykit` provides a unified, multi-channel notification engine powered by BullMQ and Redis. It allows applications to enqueue notifications fail-fast, pre-render templates reliably in memory, and deliver messages across Email, SMS, and Push notification channels with durable retry logic, automatic error classification, and dead-letter queue (DLQ) protection.
+`@sadikkhan02/notifykit` provides a unified, multi-channel notification engine powered by BullMQ and Redis. It allows applications to enqueue notifications fail-fast, pre-render templates reliably in memory, and deliver messages across Email, SMS, and Push notification channels with durable retry logic, automatic error classification, and dead-letter queue (DLQ) protection.
 
 ---
 
@@ -22,23 +22,23 @@
 ## Installation
 
 ```bash
-npm install notifykit
+npm install @sadikkhan02/notifykit
 ```
 
 Install the adapters you need:
 
 ```bash
 # Email (Universal SMTP, SendGrid, Gmail, Mailtrap)
-npm install @notifykit/adapter-nodemailer nodemailer
+npm install @sadikkhan02/adapter-nodemailer nodemailer
 
 # SMS (Twilio)
-npm install @notifykit/adapter-twilio twilio
+npm install @sadikkhan02/adapter-twilio twilio
 
 # SMS (MSG91 - India DLT optimized, native fetch, zero vendor SDK)
-npm install @notifykit/adapter-msg91
+npm install @sadikkhan02/adapter-msg91
 
 # Push (Firebase Cloud Messaging)
-npm install @notifykit/adapter-fcm firebase-admin
+npm install @sadikkhan02/adapter-fcm firebase-admin
 ```
 
 ---
@@ -46,8 +46,8 @@ npm install @notifykit/adapter-fcm firebase-admin
 ## Quick Start
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
 
 // 1. Initialize the Notifier
 const notifier = createNotifier({

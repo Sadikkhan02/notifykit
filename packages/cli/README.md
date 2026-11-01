@@ -1,4 +1,4 @@
-# `notifykit-cli`
+# `@sadikkhan02/notifykit-cli`
 
 Interactive setup wizard and non-interactive CI tool for configuring **NotifyKit** in any Node.js project.
 
@@ -7,7 +7,7 @@ Interactive setup wizard and non-interactive CI tool for configuring **NotifyKit
 Run the wizard in your project root:
 
 ```bash
-npx notifykit init
+npx @sadikkhan02/notifykit init
 ```
 
 The wizard will guide you through:
@@ -31,7 +31,7 @@ For automated environments, Docker containers, and CI/CD pipelines, specify conf
 
 ```bash
 # Configure Twilio SMS
-npx notifykit init \
+npx @sadikkhan02/notifykit init \
   --channels=sms \
   --sms=twilio \
   --twilio-sid=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
@@ -40,7 +40,7 @@ npx notifykit init \
   --yes
 
 # Configure Nodemailer Email with dry-run
-npx notifykit init \
+npx @sadikkhan02/notifykit init \
   --channels=email \
   --email=nodemailer \
   --smtp-host=smtp.mailtrap.io \

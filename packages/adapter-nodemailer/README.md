@@ -1,15 +1,15 @@
-# `@notifykit/adapter-nodemailer`
+# `@sadikkhan02/adapter-nodemailer`
 
 > Universal Email adapter for NotifyKit using Nodemailer (SMTP, AWS SES, Mailgun, SendGrid, Gmail, Mailtrap).
 
-This package bridges NotifyKit's background worker to any SMTP server or email delivery provider supported by Nodemailer. It conforms to the `EmailProvider` contract and is verified by `@notifykit/test-utils`.
+This package bridges NotifyKit's background worker to any SMTP server or email delivery provider supported by Nodemailer. It conforms to the `EmailProvider` contract and is verified by `@sadikkhan02/test-utils`.
 
 ---
 
 ## Installation
 
 ```bash
-npm install notifykit @notifykit/adapter-nodemailer nodemailer
+npm install @sadikkhan02/notifykit @sadikkhan02/adapter-nodemailer nodemailer
 ```
 
 > **Note:** `nodemailer` is declared as an external peer dependency to allow consuming applications full control over version pinning and native transport extensions.
@@ -34,8 +34,8 @@ npm install notifykit @notifykit/adapter-nodemailer nodemailer
 ## Usage
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
 
 const emailProvider = new NodemailerEmailProvider({
   host: process.env.SMTP_HOST || 'smtp.mailtrap.io',

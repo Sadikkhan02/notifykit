@@ -7,8 +7,8 @@ import {
   closeRedisConnection,
   validateEvent,
   type Notifier,
-} from 'notifykit';
-import { createMockEmailProvider, createMockSmsProvider } from '@notifykit/test-utils';
+} from '@sadikkhan02/notifykit';
+import { createMockEmailProvider, createMockSmsProvider } from '@sadikkhan02/test-utils';
 
 /**
  * Checks whether a local Redis server is accepting TCP connections.
@@ -34,7 +34,7 @@ async function main() {
   console.log('=== NotifyKit CI Deterministic Mock Suite ===');
   console.log('Mode: Fully mocked, offline-safe execution for automated CI');
 
-  // 1. Create deterministic mock providers using @notifykit/test-utils
+  // 1. Create deterministic mock providers using @sadikkhan02/test-utils
   const mockEmail = createMockEmailProvider();
   const mockSms = createMockSmsProvider();
 

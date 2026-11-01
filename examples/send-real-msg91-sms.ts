@@ -5,9 +5,9 @@ import {
   resetDefaultRegistry,
   closeRedisConnection,
   type Notifier,
-} from 'notifykit';
-import type { ProviderResult } from 'notifykit/interfaces';
-import { Msg91SmsProvider } from '@notifykit/adapter-msg91';
+} from '@sadikkhan02/notifykit';
+import type { ProviderResult } from '@sadikkhan02/notifykit/interfaces';
+import { Msg91SmsProvider } from '@sadikkhan02/adapter-msg91';
 
 // --- Shared Global Shutdown State ---
 let shutdownPromise: Promise<void> | null = null;

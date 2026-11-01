@@ -12,12 +12,12 @@ This guide provides exhaustive setup and configuration instructions for all four
 
 ## 1. Nodemailer (Universal Email)
 
-The Nodemailer adapter (`@notifykit/adapter-nodemailer`) routes email notifications to any standard SMTP server or transactional email provider.
+The Nodemailer adapter (`@sadikkhan02/adapter-nodemailer`) routes email notifications to any standard SMTP server or transactional email provider.
 
 ### Installation
 
 ```bash
-npm install @notifykit/adapter-nodemailer nodemailer
+npm install @sadikkhan02/adapter-nodemailer nodemailer
 ```
 
 ### Environment Variables
@@ -34,8 +34,8 @@ npm install @notifykit/adapter-nodemailer nodemailer
 ### Code Configuration
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
 
 const emailProvider = new NodemailerEmailProvider({
   host: process.env.SMTP_HOST!,
@@ -63,12 +63,12 @@ export const notifier = createNotifier({
 
 ## 2. Twilio SMS
 
-The Twilio adapter (`@notifykit/adapter-twilio`) delivers SMS and MMS messages worldwide.
+The Twilio adapter (`@sadikkhan02/adapter-twilio`) delivers SMS and MMS messages worldwide.
 
 ### Installation
 
 ```bash
-npm install @notifykit/adapter-twilio twilio
+npm install @sadikkhan02/adapter-twilio twilio
 ```
 
 ### Environment Variables
@@ -89,8 +89,8 @@ npm install @notifykit/adapter-twilio twilio
 ### Code Configuration
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { TwilioSmsProvider } from '@notifykit/adapter-twilio';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { TwilioSmsProvider } from '@sadikkhan02/adapter-twilio';
 
 const smsProvider = new TwilioSmsProvider({
   accountSid: process.env.TWILIO_ACCOUNT_SID!,
@@ -114,12 +114,12 @@ export const notifier = createNotifier({
 
 ## 3. MSG91 SMS
 
-The MSG91 adapter (`@notifykit/adapter-msg91`) connects to MSG91's Flow API. Built with native Node.js `fetch`, it requires **zero external vendor dependencies**.
+The MSG91 adapter (`@sadikkhan02/adapter-msg91`) connects to MSG91's Flow API. Built with native Node.js `fetch`, it requires **zero external vendor dependencies**.
 
 ### Installation
 
 ```bash
-npm install @notifykit/adapter-msg91
+npm install @sadikkhan02/adapter-msg91
 ```
 
 ### Environment Variables
@@ -137,8 +137,8 @@ npm install @notifykit/adapter-msg91
 ### Code Configuration
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { Msg91SmsProvider } from '@notifykit/adapter-msg91';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { Msg91SmsProvider } from '@sadikkhan02/adapter-msg91';
 
 const smsProvider = new Msg91SmsProvider({
   authKey: process.env.MSG91_AUTH_KEY!,
@@ -160,12 +160,12 @@ export const notifier = createNotifier({
 
 ## 4. Firebase Cloud Messaging (FCM) Push
 
-The FCM adapter (`@notifykit/adapter-fcm`) delivers push notifications to Android, iOS (APNs routed through FCM), and Web browsers.
+The FCM adapter (`@sadikkhan02/adapter-fcm`) delivers push notifications to Android, iOS (APNs routed through FCM), and Web browsers.
 
 ### Installation
 
 ```bash
-npm install @notifykit/adapter-fcm firebase-admin
+npm install @sadikkhan02/adapter-fcm firebase-admin
 ```
 
 ### Environment Variables
@@ -181,8 +181,8 @@ Generate a private service account key in **Firebase Console > Project Settings 
 ### Code Configuration
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { FcmPushProvider } from '@notifykit/adapter-fcm';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { FcmPushProvider } from '@sadikkhan02/adapter-fcm';
 
 const pushProvider = new FcmPushProvider({
   serviceAccount: process.env.FCM_SERVICE_ACCOUNT_JSON,

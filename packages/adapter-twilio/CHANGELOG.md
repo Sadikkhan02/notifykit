@@ -1,4 +1,4 @@
-# @notifykit/adapter-twilio
+# @sadikkhan02/adapter-twilio
 
 ## 1.0.0
 

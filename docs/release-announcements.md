@@ -27,17 +27,17 @@ NotifyKit is an open-source, production-grade notification delivery engine desig
   - High-performance throughput (>700 msg/s, p99 latency <2.5 ms)
 
 - **Provider Adapters**:
-  - `@notifykit/adapter-nodemailer`: Production SMTP transport with TLS and attachments
-  - `@notifykit/adapter-twilio`: Twilio REST API SMS with Messaging Service SID
-  - `@notifykit/adapter-msg91`: MSG91 Flow API SMS adapter with DLT compliance
-  - `@notifykit/adapter-fcm`: Firebase Cloud Messaging push via Firebase Admin SDK
+  - `@sadikkhan02/adapter-nodemailer`: Production SMTP transport with TLS and attachments
+  - `@sadikkhan02/adapter-twilio`: Twilio REST API SMS with Messaging Service SID
+  - `@sadikkhan02/adapter-msg91`: MSG91 Flow API SMS adapter with DLT compliance
+  - `@sadikkhan02/adapter-fcm`: Firebase Cloud Messaging push via Firebase Admin SDK
 
-- **CLI Setup Wizard (`notifykit-cli` / `npx notifykit init`)**:
+- **CLI Setup Wizard (`@sadikkhan02/notifykit-cli` / `npx @sadikkhan02/notifykit init`)**:
   - Zero-config interactive setup wizard
   - Headless/CI automation flags
   - Automatic package installation and `.env` generation
 
-- **Testing Suite (`@notifykit/test-utils`)**:
+- **Testing Suite (`@sadikkhan02/test-utils`)**:
   - Contract compliance test suite (`runAdapterContractTests`)
   - Deterministic in-memory mock providers for Email, SMS, and Push
 
@@ -102,19 +102,19 @@ npm init -y
 npm install notifykit-cli@beta notifykit@beta
 
 # Verify binary and setup wizard
-npx notifykit --version
-npx notifykit --help
-npx notifykit init --yes --dry-run --skip-install --channels=email --email=nodemailer --smtp-host=smtp.test.com --smtp-port=587 --smtp-user=test --smtp-password=pass
+npx @sadikkhan02/notifykit --version
+npx @sadikkhan02/notifykit --help
+npx @sadikkhan02/notifykit init --yes --dry-run --skip-install --channels=email --email=nodemailer --smtp-host=smtp.test.com --smtp-port=587 --smtp-user=test --smtp-password=pass
 
 # Install official adapters and test utilities from npm registry
-npm install @notifykit/adapter-nodemailer@beta @notifykit/adapter-twilio@beta @notifykit/adapter-msg91@beta @notifykit/adapter-fcm@beta @notifykit/test-utils@beta
+npm install @sadikkhan02/adapter-nodemailer@beta @sadikkhan02/adapter-twilio@beta @sadikkhan02/adapter-msg91@beta @sadikkhan02/adapter-fcm@beta @sadikkhan02/test-utils@beta
 
 # Confirm no workspace symlinks exist
 npm ls --depth=0
 ```
 
 Verify:
-1. `node -e "import('notifykit').then(m => console.log('Loaded core:', typeof m.createNotifier))"`
+1. `node -e "import('@sadikkhan02/notifykit').then(m => console.log('Loaded core:', typeof m.createNotifier))"`
 2. Verify adapter imports and contract compliance.
 3. Run each example in `examples/` against beta versions.
 
@@ -124,13 +124,13 @@ Only after the 15–30 minute beta window passes with zero errors:
 
 ```bash
 # Promote in topological order:
-npm dist-tag add notifykit-cli@1.0.0 latest
-npm dist-tag add notifykit@1.0.0 latest
-npm dist-tag add @notifykit/test-utils@1.0.0 latest
-npm dist-tag add @notifykit/adapter-nodemailer@1.0.0 latest
-npm dist-tag add @notifykit/adapter-twilio@1.0.0 latest
-npm dist-tag add @notifykit/adapter-msg91@1.0.0 latest
-npm dist-tag add @notifykit/adapter-fcm@1.0.0 latest
+npm dist-tag add @sadikkhan02/notifykit-cli@1.0.0 latest
+npm dist-tag add @sadikkhan02/notifykit@1.0.0 latest
+npm dist-tag add @sadikkhan02/test-utils@1.0.0 latest
+npm dist-tag add @sadikkhan02/adapter-nodemailer@1.0.0 latest
+npm dist-tag add @sadikkhan02/adapter-twilio@1.0.0 latest
+npm dist-tag add @sadikkhan02/adapter-msg91@1.0.0 latest
+npm dist-tag add @sadikkhan02/adapter-fcm@1.0.0 latest
 ```
 
 ### D. Creating Git Release Tag
@@ -198,8 +198,8 @@ Calling vendor SDKs directly in express/fastify route handlers creates tight cou
 
 ### Quick Example:
 ```ts
-import { createNotifier } from 'notifykit';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
 
 const notifier = createNotifier({
   email: new NodemailerEmailProvider({
@@ -242,10 +242,10 @@ NotifyKit provides an asynchronous, BullMQ-backed queue that delivers p99 latenc
 
 3/6
 📦 Modular Adapter Ecosystem:
-✉️ Email: @notifykit/adapter-nodemailer
-📱 SMS: @notifykit/adapter-twilio & @notifykit/adapter-msg91
-🔔 Push: @notifykit/adapter-fcm
-🧪 Test utilities: @notifykit/test-utils
+✉️ Email: @sadikkhan02/adapter-nodemailer
+📱 SMS: @sadikkhan02/adapter-twilio & @sadikkhan02/adapter-msg91
+🔔 Push: @sadikkhan02/adapter-fcm
+🧪 Test utilities: @sadikkhan02/test-utils
 
 4/6
 🔒 Security First:
@@ -255,8 +255,8 @@ NotifyKit provides an asynchronous, BullMQ-backed queue that delivers p99 latenc
 
 5/6
 ⚡️ Setup in 30 seconds:
-$ npm install notifykit
-$ npx notifykit init
+$ npm install @sadikkhan02/notifykit
+$ npx @sadikkhan02/notifykit init
 
 The interactive wizard configures channels, sets up .env, and installs adapters automatically.
 

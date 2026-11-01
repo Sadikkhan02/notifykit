@@ -4,13 +4,13 @@
   "commit": false,
   "fixed": [
     [
-      "notifykit",
-      "@notifykit/adapter-nodemailer",
-      "@notifykit/adapter-twilio",
-      "@notifykit/adapter-msg91",
-      "@notifykit/adapter-fcm",
-      "notifykit-cli",
-      "@notifykit/test-utils"
+      "@sadikkhan02/notifykit",
+      "@sadikkhan02/adapter-nodemailer",
+      "@sadikkhan02/adapter-twilio",
+      "@sadikkhan02/adapter-msg91",
+      "@sadikkhan02/adapter-fcm",
+      "@sadikkhan02/notifykit-cli",
+      "@sadikkhan02/test-utils"
     ]
   ],
   "linked": [],

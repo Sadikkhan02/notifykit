@@ -74,7 +74,7 @@ describe('CLI non-interactive / headless mode', () => {
   it('executes successfully with full flags and --yes', async () => {
     const installSpy = vi.spyOn(installerModule, 'installPackages').mockResolvedValueOnce({
       packageManager: 'npm',
-      packages: ['notifykit', '@notifykit/adapter-twilio', 'twilio'],
+      packages: ['@sadikkhan02/notifykit', '@sadikkhan02/adapter-twilio', 'twilio'],
       success: true,
     });
 

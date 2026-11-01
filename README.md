@@ -18,7 +18,7 @@ NotifyKit is a developer-centric, multi-channel notification engine. It provides
 - **Zero Database Requirement:** 100% stateless. Requires no PostgreSQL, MongoDB, or MySQL. Redis handles queue durability and backpressure.
 - **Pluggable Adapter Architecture:** First-class adapters for Nodemailer (SMTP), Twilio, MSG91, and Firebase Cloud Messaging (FCM).
 - **Enterprise Resilience:** Automatic retries for transient glitches (exponential backoff with jitter) and instant DLQ routing for unrecoverable errors.
-- **Interactive CLI Setup:** Get up and running in minutes with `npx notifykit init`.
+- **Interactive CLI Setup:** Get up and running in minutes with `npx @sadikkhan02/notifykit init`.
 - **End-to-End Tracing:** Automatic UUIDv7 trace ID propagation and PII/credential redaction in structured Pino logs.
 
 ---
@@ -26,12 +26,12 @@ NotifyKit is a developer-centric, multi-channel notification engine. It provides
 ## 10-Line Quick Start
 
 ```bash
-npm install notifykit @notifykit/adapter-nodemailer nodemailer
+npm install @sadikkhan02/notifykit @sadikkhan02/adapter-nodemailer nodemailer
 ```
 
 ```typescript
-import { createNotifier } from 'notifykit';
-import { NodemailerEmailProvider } from '@notifykit/adapter-nodemailer';
+import { createNotifier } from '@sadikkhan02/notifykit';
+import { NodemailerEmailProvider } from '@sadikkhan02/adapter-nodemailer';
 
 // 1. Initialize orchestrator with provider adapter
 const notifier = createNotifier({
@@ -67,14 +67,14 @@ notifier.startWorker({ channels: ['email'] });
 
 ## Supported Channels & Adapter Matrix
 
-| Channel   | Adapter Package                                                | Backing Provider                               | Peer Dependencies       | Contract Suite |
-| :-------- | :------------------------------------------------------------- | :--------------------------------------------- | :---------------------- | :------------: |
-| **Email** | [`@notifykit/adapter-nodemailer`](packages/adapter-nodemailer) | Universal SMTP, SES, Gmail, Mailtrap, SendGrid | `nodemailer`            |    Verified    |
-| **SMS**   | [`@notifykit/adapter-twilio`](packages/adapter-twilio)         | Twilio Messaging API (Global, 10DLC)           | `twilio`                |    Verified    |
-| **SMS**   | [`@notifykit/adapter-msg91`](packages/adapter-msg91)           | MSG91 Flow API (India DLT Compliant)           | _None_ (Native `fetch`) |    Verified    |
-| **Push**  | [`@notifykit/adapter-fcm`](packages/adapter-fcm)               | Firebase Cloud Messaging (Android, iOS, Web)   | `firebase-admin`        |    Verified    |
+| Channel   | Adapter Package                                                  | Backing Provider                               | Peer Dependencies       | Contract Suite |
+| :-------- | :--------------------------------------------------------------- | :--------------------------------------------- | :---------------------- | :------------: |
+| **Email** | [`@sadikkhan02/adapter-nodemailer`](packages/adapter-nodemailer) | Universal SMTP, SES, Gmail, Mailtrap, SendGrid | `nodemailer`            |    Verified    |
+| **SMS**   | [`@sadikkhan02/adapter-twilio`](packages/adapter-twilio)         | Twilio Messaging API (Global, 10DLC)           | `twilio`                |    Verified    |
+| **SMS**   | [`@sadikkhan02/adapter-msg91`](packages/adapter-msg91)           | MSG91 Flow API (India DLT Compliant)           | _None_ (Native `fetch`) |    Verified    |
+| **Push**  | [`@sadikkhan02/adapter-fcm`](packages/adapter-fcm)               | Firebase Cloud Messaging (Android, iOS, Web)   | `firebase-admin`        |    Verified    |
 
-All adapters conform to the universal adapter contracts verified by [`@notifykit/test-utils`](packages/test-utils).
+All adapters conform to the universal adapter contracts verified by [`@sadikkhan02/test-utils`](packages/test-utils).
 
 ---
 
@@ -97,12 +97,12 @@ _(Tested on Node.js v24.21.0, Linux x64, 8 vCPUs with Redis 7-alpine container).
 
 ---
 
-## Interactive Setup Wizard (`notifykit-cli`)
+## Interactive Setup Wizard (`@sadikkhan02/notifykit-cli`)
 
 Initialize NotifyKit in any project with one command:
 
 ```bash
-npx notifykit init
+npx @sadikkhan02/notifykit init
 ```
 
 The interactive wizard configures channels, captures provider credentials with masked inputs, checks Redis connectivity, safely writes `.env` and `.env.example`, and installs only the necessary adapters.
@@ -110,7 +110,7 @@ The interactive wizard configures channels, captures provider credentials with m
 For automated Docker builds and CI/CD pipelines, use non-interactive mode:
 
 ```bash
-npx notifykit init --channels=email --email=nodemailer --smtp-host=smtp.mailtrap.io --yes
+npx @sadikkhan02/notifykit init --channels=email --email=nodemailer --smtp-host=smtp.mailtrap.io --yes
 ```
 
 > See the full CLI documentation in [`packages/cli/README.md`](packages/cli/README.md).
@@ -125,7 +125,7 @@ Explore our comprehensive documentation:
 - **[Architecture & Design](docs/architecture.md):** System architecture, lifecycle stages, retry backoff, and DLQ mechanics.
 - **[Provider Configuration Guide](docs/providers.md):** Exhaustive setup, credentials, and regulatory requirements (10DLC, DLT).
 - **[Troubleshooting & Operations](docs/troubleshooting.md):** Diagnostic recipes for Redis, SMTP, SMS, FCM, and DLQ errors.
-- **[Authoring Custom Adapters](docs/adapters.md):** Guide to creating custom provider adapters with `@notifykit/test-utils`.
+- **[Authoring Custom Adapters](docs/adapters.md):** Guide to creating custom provider adapters with `@sadikkhan02/test-utils`.
 - **[Redis Data Model](docs/redis.md):** Complete reference of Redis key layouts, namespaces, and retention policies.
 
 ---

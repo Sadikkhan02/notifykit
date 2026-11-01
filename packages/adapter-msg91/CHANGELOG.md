@@ -1,4 +1,4 @@
-# @notifykit/adapter-msg91
+# @sadikkhan02/adapter-msg91
 
 ## 1.0.0
 

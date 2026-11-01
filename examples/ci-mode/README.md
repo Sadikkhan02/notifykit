@@ -6,8 +6,8 @@ This example demonstrates automated non-interactive CLI setup and deterministic 
 
 ## What This Example Demonstrates
 
-1. **Non-Interactive Setup Wizard:** Running `npx notifykit init` in automated mode with `--yes`, `--dry-run`, and configuration flags.
-2. **Deterministic Mock Providers:** Using `@notifykit/test-utils` mock adapters (`createMockEmailProvider`, `createMockSmsProvider`) to verify delivery without external network access or real credentials.
+1. **Non-Interactive Setup Wizard:** Running `npx @sadikkhan02/notifykit init` in automated mode with `--yes`, `--dry-run`, and configuration flags.
+2. **Deterministic Mock Providers:** Using `@sadikkhan02/test-utils` mock adapters (`createMockEmailProvider`, `createMockSmsProvider`) to verify delivery without external network access or real credentials.
 3. **Offline Resilience:** Safe handling of offline/sandbox test environments.
 4. **Zero Secrets in CI:** Eliminates the need to inject production tokens or credentials into CI pipelines.
 
