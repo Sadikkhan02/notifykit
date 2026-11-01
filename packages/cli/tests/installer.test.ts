@@ -43,7 +43,7 @@ describe('CLI installer', () => {
   });
 
   describe('resolvePackagesToInstall', () => {
-    it('includes notifykit when target package.json does not have it', () => {
+    it('includes @sadikkhan02/notifykit when target package.json does not have it', () => {
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'notifykit-pkg-test-'));
       try {
         fs.writeFileSync(
@@ -52,7 +52,7 @@ describe('CLI installer', () => {
         );
 
         const pkgs = resolvePackagesToInstall(tempDir, { email: 'nodemailer' });
-        expect(pkgs).toContain('notifykit');
+        expect(pkgs).toContain('@sadikkhan02/notifykit');
         expect(pkgs).toContain('@notifykit/adapter-nodemailer');
         expect(pkgs).toContain('nodemailer');
       } finally {
@@ -60,7 +60,24 @@ describe('CLI installer', () => {
       }
     });
 
-    it('omits notifykit if already present in dependencies', () => {
+    it('omits @sadikkhan02/notifykit if already present in dependencies', () => {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'notifykit-pkg-test-'));
+      try {
+        fs.writeFileSync(
+          path.join(tempDir, 'package.json'),
+          JSON.stringify({ name: 'my-app', dependencies: { '@sadikkhan02/notifykit': '^1.0.0' } }),
+        );
+
+        const pkgs = resolvePackagesToInstall(tempDir, { email: 'nodemailer' });
+        expect(pkgs).not.toContain('@sadikkhan02/notifykit');
+        expect(pkgs).toContain('@notifykit/adapter-nodemailer');
+        expect(pkgs).toContain('nodemailer');
+      } finally {
+        fs.rmSync(tempDir, { recursive: true, force: true });
+      }
+    });
+
+    it('omits @sadikkhan02/notifykit if legacy notifykit is present in dependencies', () => {
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'notifykit-pkg-test-'));
       try {
         fs.writeFileSync(
@@ -69,7 +86,7 @@ describe('CLI installer', () => {
         );
 
         const pkgs = resolvePackagesToInstall(tempDir, { email: 'nodemailer' });
-        expect(pkgs).not.toContain('notifykit');
+        expect(pkgs).not.toContain('@sadikkhan02/notifykit');
         expect(pkgs).toContain('@notifykit/adapter-nodemailer');
         expect(pkgs).toContain('nodemailer');
       } finally {
@@ -146,7 +163,7 @@ describe('CLI installer', () => {
         expect(result.packageManager).toBe('npm');
         expect(execaModule.execa).toHaveBeenCalledWith(
           'npm',
-          ['install', 'notifykit', '@notifykit/adapter-twilio', 'twilio'],
+          ['install', '@sadikkhan02/notifykit', '@notifykit/adapter-twilio', 'twilio'],
           expect.objectContaining({ cwd: tempDir, stdio: 'inherit' }),
         );
       } finally {

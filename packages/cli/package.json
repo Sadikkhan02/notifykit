@@ -1,13 +1,12 @@
 {
-  "name": "notifykit-cli",
+  "name": "@sadikkhan02/notifykit-cli",
   "version": "1.0.0",
   "description": "Interactive setup wizard and CLI generator for NotifyKit",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
   "bin": {
-    "notifykit": "./dist/index.js",
-    "notifykit-cli": "./dist/index.js"
+    "notifykit-cli": "dist/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

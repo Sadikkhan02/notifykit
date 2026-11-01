@@ -56,7 +56,7 @@ export const ENV_EXAMPLE_PLACEHOLDERS: Record<string, string> = {
 
 export const STARTER_CODE_SNIPPET = `
 // NotifyKit Quick Start:
-import { createNotifier } from 'notifykit';
+import { createNotifier } from '@sadikkhan02/notifykit';
 
 const notifier = createNotifier();
 

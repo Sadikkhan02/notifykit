@@ -1,3 +1,7 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { describe, it, expect, vi } from 'vitest';
 import { cliVersion, HELP_TEXT, main } from '../src/index.js';
 import * as interactiveModule from '../src/interactive.js';
@@ -84,5 +88,62 @@ describe('CLI main entrypoint', () => {
       });
       interactiveSpy.mockRestore();
     }
+  });
+
+  describe('isDirectExecution canonical realpath detection', () => {
+    it('returns false when argv1 is undefined', async () => {
+      const { isDirectExecution } = await import('../src/index.js');
+      expect(isDirectExecution(undefined)).toBe(false);
+    });
+
+    it('safely returns false when path resolution fails', async () => {
+      const { isDirectExecution } = await import('../src/index.js');
+      expect(isDirectExecution('/nonexistent/path/to/script.js')).toBe(false);
+      expect(isDirectExecution('\0invalid-path')).toBe(false);
+    });
+
+    it('returns false when an external script named index.js imports the module', async () => {
+      const { isDirectExecution } = await import('../src/index.js');
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'external-app-'));
+      const externalIndex = path.join(tempDir, 'index.js');
+      fs.writeFileSync(externalIndex, '// external entrypoint');
+
+      try {
+        const isDirect = isDirectExecution(externalIndex);
+        expect(isDirect).toBe(false);
+      } finally {
+        fs.rmSync(tempDir, { recursive: true, force: true });
+      }
+    });
+
+    it('returns true when argv1 resolves to the same realpath as the module', async () => {
+      const { isDirectExecution } = await import('../src/index.js');
+      const currentModulePath = fileURLToPath(import.meta.url);
+      expect(isDirectExecution(currentModulePath, import.meta.url)).toBe(true);
+    });
+
+    it('returns true when argv1 is a symlink resolving to the module realpath', async () => {
+      const { isDirectExecution } = await import('../src/index.js');
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'symlink-test-'));
+      const targetFile = path.join(tempDir, 'target.js');
+      const symlinkFile = path.join(tempDir, 'bin-symlink');
+
+      fs.writeFileSync(targetFile, '// target');
+      fs.symlinkSync(targetFile, symlinkFile);
+
+      try {
+        const targetUrl = pathToFileURL(targetFile).href;
+        expect(isDirectExecution(symlinkFile, targetUrl)).toBe(true);
+      } finally {
+        fs.rmSync(tempDir, { recursive: true, force: true });
+      }
+    });
+
+    it('importing the CLI module does not auto-run main()', async () => {
+      // If importing auto-ran main(), process.exit or wizard dispatch would occur
+      const mod = await import('../src/index.js');
+      expect(typeof mod.main).toBe('function');
+      expect(typeof mod.isDirectExecution).toBe('function');
+    });
   });
 });

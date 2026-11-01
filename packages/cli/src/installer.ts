@@ -25,7 +25,7 @@ export function detectPackageManager(targetDir: string): PackageManager {
 
 /**
  * Collects all package names needed for the selected providers.
- * Includes 'notifykit' if not already installed in the target package.json.
+ * Includes '@sadikkhan02/notifykit' if not already installed in the target package.json.
  */
 export function resolvePackagesToInstall(
   targetDir: string,
@@ -41,7 +41,7 @@ export function resolvePackagesToInstall(
       const content = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf8')) as {
         dependencies?: Record<string, string>;
       };
-      if (content.dependencies?.notifykit) {
+      if (content.dependencies?.['@sadikkhan02/notifykit'] || content.dependencies?.notifykit) {
         hasCore = true;
       }
     } catch {
@@ -50,7 +50,7 @@ export function resolvePackagesToInstall(
   }
 
   if (!hasCore) {
-    packages.push('notifykit');
+    packages.push('@sadikkhan02/notifykit');
   }
 
   const selectedProviders = Object.values(providers).filter(Boolean) as Provider[];

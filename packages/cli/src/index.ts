@@ -1,8 +1,34 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import process from 'node:process';
+import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { runInteractiveWizard } from './interactive.js';
 import { runNonInteractive } from './non-interactive.js';
 import type { CliOptions } from './types.js';
+
+/**
+ * Detects whether the current file is being executed directly via the CLI binary
+ * or direct Node invocation, rather than being imported as a library module.
+ *
+ * Uses canonical realpath resolution on both argv[1] and import.meta.url.
+ * If path resolution fails (e.g. invalid path, inaccessible filesystem), safely returns false.
+ */
+export function isDirectExecution(
+  argv1: string | undefined = process.argv[1],
+  moduleUrl: string = import.meta.url,
+): boolean {
+  if (!argv1) {
+    return false;
+  }
+  try {
+    const scriptPath = fs.realpathSync(path.resolve(argv1));
+    const modulePath = fs.realpathSync(fileURLToPath(moduleUrl));
+    return scriptPath === modulePath;
+  } catch {
+    return false;
+  }
+}
 
 export const cliVersion = '1.0.0';
 
@@ -183,10 +209,7 @@ export async function main(argv: string[] = process.argv.slice(2)): Promise<numb
 }
 
 // Auto-run if executed directly via CLI
-if (
-  process.argv[1] &&
-  (process.argv[1].endsWith('dist/index.js') || process.argv[1].endsWith('notifykit-cli'))
-) {
+if (isDirectExecution()) {
   main()
     .then((code) => {
       if (typeof code === 'number' && code !== 0) {

@@ -24,20 +24,20 @@ describe('Built-package consumer test (notifykit/interfaces export contract)', (
     expect(existsSync(interfacesCjs)).toBe(true);
   }, 30000);
 
-  it('resolves notifykit/interfaces via runtime ESM import through package exports', async () => {
-    const esmModule = await import('notifykit/interfaces');
+  it('resolves @sadikkhan02/notifykit/interfaces via runtime ESM import through package exports', async () => {
+    const esmModule = await import('@sadikkhan02/notifykit/interfaces');
     expect(esmModule).toBeDefined();
     expect(typeof esmModule).toBe('object');
   });
 
-  it('resolves notifykit/interfaces via runtime CommonJS require through package exports', () => {
+  it('resolves @sadikkhan02/notifykit/interfaces via runtime CommonJS require through package exports', () => {
     const require = createRequire(import.meta.url);
-    const cjsModule = require('notifykit/interfaces');
+    const cjsModule = require('@sadikkhan02/notifykit/interfaces');
     expect(cjsModule).toBeDefined();
     expect(typeof cjsModule).toBe('object');
   });
 
-  it('compiles an external consumer importing from notifykit/interfaces with tsc', () => {
+  it('compiles an external consumer importing from @sadikkhan02/notifykit/interfaces with tsc', () => {
     const consumerTsconfig = resolve(__dirname, 'fixtures/consumer/tsconfig.json');
     const rootDir = resolve(__dirname, '../../..');
 

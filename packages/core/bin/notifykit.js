@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { main } from 'notifykit-cli';
+import { main } from '@sadikkhan02/notifykit-cli';
 
 main()
   .then((code) => {

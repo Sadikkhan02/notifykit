@@ -6,7 +6,7 @@ import type {
   NotificationEvent,
   ProviderResult,
   AdapterMetadata,
-} from 'notifykit/interfaces';
+} from '@sadikkhan02/notifykit/interfaces';
 
 export class ExternalConsumerSmsAdapter implements SmsProvider {
   readonly name = 'external-consumer-sms';
