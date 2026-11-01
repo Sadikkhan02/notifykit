@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@sadikkhan02/test-utils": "^1.0.0",
-    "@types/node": "^26.6.5",
+    "@types/node": "^26.6.6",
     "@sadikkhan02/notifykit": "^1.0.0",
     "tsup": "^9.0.0",
     "typescript": "~6.0.3",
