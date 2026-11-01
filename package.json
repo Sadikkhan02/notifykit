@@ -33,7 +33,7 @@
     "eslint-plugin-import": "^2.32.0",
     "ioredis-mock": "^8.13.1",
     "prettier": "^3.9.10",
-    "size-limit": "^12.1.0",
+    "size-limit": "^14.3.0",
     "testcontainers": "^10.18.0",
     "tsup": "^9.0.0",
     "typescript": "~6.0.3",
