@@ -30,6 +30,7 @@ export interface ChannelWorkerOptions {
   connection?: Redis;
   registry?: QueueRegistry;
   logger?: Logger;
+  autorun?: boolean;
 }
 
 export interface WorkerManagerOptions {
@@ -321,6 +322,7 @@ export function createChannelWorker(
       connection,
       prefix: 'bull:notifykit',
       concurrency,
+      ...(options.autorun !== undefined ? { autorun: options.autorun } : {}),
     },
   );
 }

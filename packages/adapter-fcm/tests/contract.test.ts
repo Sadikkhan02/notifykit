@@ -1,5 +1,5 @@
 import { vi } from 'vitest';
-import { runAdapterContractTests } from '@notifykit/test-utils';
+import { runAdapterContractTests } from '@sadikkhan02/test-utils';
 import { FcmPushProvider, metadata, type MessagingLike } from '../src/index.js';
 
 runAdapterContractTests({

@@ -1,6 +1,6 @@
 import { vi } from 'vitest';
 import type { Transporter } from 'nodemailer';
-import { runAdapterContractTests } from '@notifykit/test-utils';
+import { runAdapterContractTests } from '@sadikkhan02/test-utils';
 import { NodemailerEmailProvider, metadata } from '../src/index.js';
 
 runAdapterContractTests({

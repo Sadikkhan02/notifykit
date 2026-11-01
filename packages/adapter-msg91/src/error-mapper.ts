@@ -1,4 +1,4 @@
-import type { ProviderResult } from 'notifykit/interfaces';
+import type { ProviderResult } from '@sadikkhan02/notifykit/interfaces';
 
 /**
  * Structured MSG91 error codes for DLT / regulatory template and sender issues.

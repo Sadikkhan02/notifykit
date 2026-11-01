@@ -10,8 +10,8 @@ export default defineConfig({
     'firebase-admin',
     'firebase-admin/app',
     'firebase-admin/messaging',
-    'notifykit',
-    'notifykit/interfaces',
+    '@sadikkhan02/notifykit',
+    '@sadikkhan02/notifykit/interfaces',
   ],
   outExtension({ format }) {
     return {

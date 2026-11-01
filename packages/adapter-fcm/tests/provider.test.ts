@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import type { AdapterMetadata } from 'notifykit/interfaces';
+import type { AdapterMetadata } from '@sadikkhan02/notifykit/interfaces';
 import { initializeApp, getApps } from 'firebase-admin/app';
 import { getMessaging } from 'firebase-admin/messaging';
 import * as adapterExports from '../src/index.js';
@@ -62,7 +62,7 @@ describe('FCM Push Adapter', () => {
       expect(coreMetadata.requiredEnv).toEqual(['FCM_SERVICE_ACCOUNT_JSON']);
       expect(metadata.version).toBe('1.0.0');
       expect(metadata.peerDependencies).toEqual({
-        notifykit: '^1.0.0',
+        '@sadikkhan02/notifykit': '^1.0.0',
         'firebase-admin': '>=11.0.0',
       });
     });

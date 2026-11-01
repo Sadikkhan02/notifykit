@@ -1,4 +1,4 @@
-import { createRedisConnection } from 'notifykit';
+import { createRedisConnection } from '@sadikkhan02/notifykit';
 
 const SAFE_LOCAL_HOSTNAMES = new Set(['localhost', '127.0.0.1', '::1', '[::1]', '0.0.0.0']);
 

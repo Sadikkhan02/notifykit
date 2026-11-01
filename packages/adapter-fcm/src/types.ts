@@ -1,5 +1,5 @@
 import type { App } from 'firebase-admin/app';
-import type { AdapterMetadata } from 'notifykit/interfaces';
+import type { AdapterMetadata } from '@sadikkhan02/notifykit/interfaces';
 
 /**
  * Standard Firebase service account credential fields.

@@ -1,5 +1,5 @@
 import type { Transporter } from 'nodemailer';
-import type { AdapterMetadata } from 'notifykit/interfaces';
+import type { AdapterMetadata } from '@sadikkhan02/notifykit/interfaces';
 
 /**
  * Authentication credentials for SMTP server connection.

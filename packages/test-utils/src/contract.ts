@@ -4,7 +4,7 @@ import type {
   SmsProvider,
   PushProvider,
   ProviderResult,
-} from 'notifykit/interfaces';
+} from '@sadikkhan02/notifykit/interfaces';
 import type { AdapterContractOptions, AnyProvider } from './types.js';
 
 /**

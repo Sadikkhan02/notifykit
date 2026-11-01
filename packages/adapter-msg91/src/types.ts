@@ -1,4 +1,4 @@
-import type { AdapterMetadata } from 'notifykit/interfaces';
+import type { AdapterMetadata } from '@sadikkhan02/notifykit/interfaces';
 
 /**
  * Single recipient object in the MSG91 Flow API payload.

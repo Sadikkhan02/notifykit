@@ -1,5 +1,5 @@
 {
-  "name": "@notifykit/test-utils",
+  "name": "@sadikkhan02/test-utils",
   "version": "1.0.0",
   "description": "Deterministic testing utilities and adapter contract compliance suite for NotifyKit",
   "license": "MIT",
@@ -26,11 +26,11 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "notifykit": "^1.0.0",
+    "@sadikkhan02/notifykit": "^1.0.0",
     "vitest": ">=1.0.0 || >=2.0.0 || >=3.0.0 || >=4.0.0 || >=5.0.0"
   },
   "peerDependenciesMeta": {
-    "notifykit": {
+    "@sadikkhan02/notifykit": {
       "optional": false
     },
     "vitest": {
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
-    "notifykit": "^1.0.0",
+    "@sadikkhan02/notifykit": "^1.0.0",
     "tsup": "^9.0.0",
     "typescript": "~6.0.3",
     "vitest": "^5.0.5"

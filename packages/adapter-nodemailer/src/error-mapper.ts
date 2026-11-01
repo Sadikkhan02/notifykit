@@ -1,4 +1,4 @@
-import type { ProviderResult } from 'notifykit/interfaces';
+import type { ProviderResult } from '@sadikkhan02/notifykit/interfaces';
 
 const NON_RETRYABLE_CODES = new Set(['EAUTH', 'EENVELOPE', 'EMESSAGE']);
 const NON_RETRYABLE_SMTP_STATUSES = new Set([535, 550, 551, 552, 553, 554]);

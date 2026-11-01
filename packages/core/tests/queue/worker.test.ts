@@ -336,6 +336,7 @@ describe('Worker Engine — worker.ts', () => {
       const worker = createChannelWorker('email', {
         config,
         concurrency: 12,
+        autorun: false,
       });
 
       expect(worker).toBeInstanceOf(Worker);
@@ -356,7 +357,7 @@ describe('Worker Engine — worker.ts', () => {
           },
         },
       };
-      const worker = createChannelWorker('email', { config });
+      const worker = createChannelWorker('email', { config, autorun: false });
       const mockJob = {
         id: 'j1',
         queueName: 'email',
@@ -390,6 +391,7 @@ describe('Worker Engine — worker.ts', () => {
       const worker = createChannelWorker('sms', {
         config,
         registry,
+        autorun: false,
       });
 
       expect(worker).toBeInstanceOf(Worker);

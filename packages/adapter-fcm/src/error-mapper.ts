@@ -1,4 +1,4 @@
-import type { ProviderResult } from 'notifykit/interfaces';
+import type { ProviderResult } from '@sadikkhan02/notifykit/interfaces';
 
 /**
  * Non-retryable FCM error codes for invalid/unregistered device tokens,

@@ -5,8 +5,8 @@ import type {
   ProviderResult,
   AdapterMetadata,
   Recipient,
-} from 'notifykit/interfaces';
-import type { NotificationJob } from 'notifykit';
+} from '@sadikkhan02/notifykit/interfaces';
+import type { NotificationJob } from '@sadikkhan02/notifykit';
 
 export type AnyProvider = EmailProvider | SmsProvider | PushProvider;
 

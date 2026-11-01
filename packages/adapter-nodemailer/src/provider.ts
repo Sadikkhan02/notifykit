@@ -1,5 +1,5 @@
 import nodemailer, { type Transporter } from 'nodemailer';
-import type { EmailProvider, ProviderResult } from 'notifykit/interfaces';
+import type { EmailProvider, ProviderResult } from '@sadikkhan02/notifykit/interfaces';
 import { mapNodemailerError } from './error-mapper.js';
 import type { NodemailerConfig } from './types.js';
 

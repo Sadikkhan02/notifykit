@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import type { AdapterMetadata } from 'notifykit/interfaces';
+import type { AdapterMetadata } from '@sadikkhan02/notifykit/interfaces';
 import {
   runAdapterContractTests,
   scanForCredentialLeaks,

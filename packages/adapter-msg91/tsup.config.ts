@@ -6,7 +6,7 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
-  external: ['notifykit', 'notifykit/interfaces'],
+  external: ['@sadikkhan02/notifykit', '@sadikkhan02/notifykit/interfaces'],
   outExtension({ format }) {
     return {
       js: format === 'esm' ? '.js' : '.cjs',

@@ -1,4 +1,4 @@
-import type { SmsProvider, ProviderResult } from 'notifykit/interfaces';
+import type { SmsProvider, ProviderResult } from '@sadikkhan02/notifykit/interfaces';
 import { mapMsg91Error } from './error-mapper.js';
 import type { Msg91Config, Msg91FlowPayload, Msg91Recipient, Msg91ApiResponse } from './types.js';
 

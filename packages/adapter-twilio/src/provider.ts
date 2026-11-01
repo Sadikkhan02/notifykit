@@ -1,5 +1,5 @@
 import twilio from 'twilio';
-import type { SmsProvider, ProviderResult } from 'notifykit/interfaces';
+import type { SmsProvider, ProviderResult } from '@sadikkhan02/notifykit/interfaces';
 import { mapTwilioError } from './error-mapper.js';
 import type { TwilioConfig, TwilioClientLike, TwilioMessageCreateParams } from './types.js';
 

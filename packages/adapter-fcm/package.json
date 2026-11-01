@@ -1,5 +1,5 @@
 {
-  "name": "@notifykit/adapter-fcm",
+  "name": "@sadikkhan02/adapter-fcm",
   "version": "1.0.0",
   "description": "Firebase Cloud Messaging (FCM) push notification provider adapter for NotifyKit",
   "license": "MIT",
@@ -28,21 +28,21 @@
   ],
   "peerDependencies": {
     "firebase-admin": ">=11.0.0",
-    "notifykit": "^1.0.0"
+    "@sadikkhan02/notifykit": "^1.0.0"
   },
   "peerDependenciesMeta": {
     "firebase-admin": {
       "optional": false
     },
-    "notifykit": {
+    "@sadikkhan02/notifykit": {
       "optional": false
     }
   },
   "devDependencies": {
-    "@notifykit/test-utils": "^1.0.0",
+    "@sadikkhan02/test-utils": "^1.0.0",
     "@types/node": "^26.6.5",
     "firebase-admin": "^13.1.0",
-    "notifykit": "^1.0.0",
+    "@sadikkhan02/notifykit": "^1.0.0",
     "tsup": "^9.0.0",
     "typescript": "~6.0.3",
     "vitest": "^5.0.5"

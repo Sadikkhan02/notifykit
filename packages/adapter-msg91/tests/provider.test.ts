@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import type { AdapterMetadata } from 'notifykit/interfaces';
+import type { AdapterMetadata } from '@sadikkhan02/notifykit/interfaces';
 import * as adapterExports from '../src/index.js';
 import {
   Msg91SmsProvider,
@@ -40,7 +40,7 @@ describe('MSG91 SMS Adapter', () => {
       expect(coreMetadata.requiredEnv).toEqual(['MSG91_AUTH_KEY', 'MSG91_FLOW_ID']);
       expect(metadata.version).toBe('1.0.0');
       expect(metadata.peerDependencies).toEqual({
-        notifykit: '^1.0.0',
+        '@sadikkhan02/notifykit': '^1.0.0',
       });
     });
 

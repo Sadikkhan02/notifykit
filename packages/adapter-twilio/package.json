@@ -1,5 +1,5 @@
 {
-  "name": "@notifykit/adapter-twilio",
+  "name": "@sadikkhan02/adapter-twilio",
   "version": "1.0.0",
   "description": "Twilio SMS provider adapter for NotifyKit",
   "license": "MIT",
@@ -27,11 +27,11 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "notifykit": "^1.0.0",
+    "@sadikkhan02/notifykit": "^1.0.0",
     "twilio": ">=4.0.0"
   },
   "peerDependenciesMeta": {
-    "notifykit": {
+    "@sadikkhan02/notifykit": {
       "optional": false
     },
     "twilio": {
@@ -39,8 +39,8 @@
     }
   },
   "devDependencies": {
-    "@notifykit/test-utils": "^1.0.0",
-    "notifykit": "^1.0.0",
+    "@sadikkhan02/test-utils": "^1.0.0",
+    "@sadikkhan02/notifykit": "^1.0.0",
     "tsup": "^9.0.0",
     "twilio": "^5.4.3",
     "typescript": "~6.0.3",

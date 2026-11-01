@@ -11,6 +11,6 @@ export const metadata: Msg91AdapterMetadata = {
   requiredEnv: ['MSG91_AUTH_KEY', 'MSG91_FLOW_ID'],
   version: '1.0.0',
   peerDependencies: {
-    notifykit: '^1.0.0',
+    '@sadikkhan02/notifykit': '^1.0.0',
   },
 };

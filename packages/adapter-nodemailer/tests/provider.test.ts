@@ -44,13 +44,13 @@ describe('NodemailerEmailProvider', () => {
       ]);
       expect(metadata.version).toBe('1.0.0');
       expect(metadata.peerDependencies).toEqual({
-        notifykit: '^1.0.0',
+        '@sadikkhan02/notifykit': '^1.0.0',
         nodemailer: '>=6.9.0',
       });
     });
 
     it('satisfies the core AdapterMetadata contract and type assignment', () => {
-      const coreMeta: import('notifykit/interfaces').AdapterMetadata = metadata;
+      const coreMeta: import('@sadikkhan02/notifykit/interfaces').AdapterMetadata = metadata;
       expect(coreMeta.name).toBe('nodemailer');
       expect(coreMeta.channel).toBe('email');
       expect(coreMeta.requiredEnv).toEqual([

@@ -1,5 +1,5 @@
-import type { Recipient, ProviderResult } from 'notifykit/interfaces';
-import type { NotificationJob } from 'notifykit';
+import type { Recipient, ProviderResult } from '@sadikkhan02/notifykit/interfaces';
+import type { NotificationJob } from '@sadikkhan02/notifykit';
 
 /**
  * Creates a deterministic recipient fixture tailored for the specified notification channel.

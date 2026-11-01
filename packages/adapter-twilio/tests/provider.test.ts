@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import type { AdapterMetadata } from 'notifykit/interfaces';
+import type { AdapterMetadata } from '@sadikkhan02/notifykit/interfaces';
 import * as adapterExports from '../src/index.js';
 import {
   TwilioSmsProvider,
@@ -43,7 +43,7 @@ describe('Twilio SMS Adapter', () => {
       expect(coreMetadata.requiredEnv).toEqual(['TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN']);
       expect(metadata.version).toBe('1.0.0');
       expect(metadata.peerDependencies).toEqual({
-        notifykit: '^1.0.0',
+        '@sadikkhan02/notifykit': '^1.0.0',
         twilio: '>=4.0.0',
       });
     });
