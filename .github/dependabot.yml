@@ -23,6 +23,18 @@ updates:
       - dependency-name: 'ioredis'
         update-types:
           - 'version-update:semver-major'
+      - dependency-name: 'size-limit'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: '@size-limit/*'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: 'eslint'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: 'execa'
+        update-types:
+          - 'version-update:semver-major'
     groups:
       dev-dependencies:
         patterns:
