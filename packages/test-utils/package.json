@@ -1,6 +1,6 @@
 {
   "name": "@sadikkhan02/test-utils",
-  "version": "1.0.0",
+  "version": "1.0.1-beta.0",
   "description": "Deterministic testing utilities and adapter contract compliance suite for NotifyKit",
   "license": "MIT",
   "type": "module",
