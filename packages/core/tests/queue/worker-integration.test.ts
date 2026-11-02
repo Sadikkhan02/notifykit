@@ -205,6 +205,7 @@ describe('Worker Engine — Real-Redis Integration Tests', () => {
     if (!redisUrl) return;
 
     const mockEmailAdapter: EmailProvider = {
+      name: 'test-email',
       sendEmail: vi.fn().mockResolvedValue({ success: true, messageId: 'email-msg-01' }),
     };
 
@@ -270,6 +271,7 @@ describe('Worker Engine — Real-Redis Integration Tests', () => {
     if (!redisUrl) return;
 
     const mockSmsAdapter: SmsProvider = {
+      name: 'test-sms',
       sendSms: vi.fn().mockResolvedValue({ success: true, messageId: 'sms-msg-02' }),
     };
 
@@ -328,6 +330,7 @@ describe('Worker Engine — Real-Redis Integration Tests', () => {
     if (!redisUrl) return;
 
     const mockPushAdapter: PushProvider = {
+      name: 'test-push',
       sendPush: vi.fn().mockResolvedValue({ success: true, messageId: 'push-msg-03' }),
     };
 
@@ -387,6 +390,7 @@ describe('Worker Engine — Real-Redis Integration Tests', () => {
     const timestamps: number[] = [];
 
     const mockEmailAdapter: EmailProvider = {
+      name: 'test-email',
       sendEmail: vi.fn(async () => {
         callCount++;
         timestamps.push(Date.now());
@@ -461,11 +465,12 @@ describe('Worker Engine — Real-Redis Integration Tests', () => {
     const timestamps: number[] = [];
 
     const mockEmailAdapter: EmailProvider = {
+      name: 'test-email',
       sendEmail: vi.fn(async () => {
         callCount++;
         timestamps.push(Date.now());
         const err = new Error('ECONNRESET: socket hang up');
-        (err as Record<string, unknown>).code = 'ECONNRESET';
+        (err as unknown as Record<string, unknown>).code = 'ECONNRESET';
         throw err;
       }),
     };
@@ -536,6 +541,7 @@ describe('Worker Engine — Real-Redis Integration Tests', () => {
     if (!redisUrl) return;
 
     const mockEmailAdapter: EmailProvider = {
+      name: 'test-email',
       sendEmail: vi.fn().mockResolvedValue({
         success: false,
         error: '550 User unknown / invalid mailbox',
@@ -711,6 +717,7 @@ describe('Worker Engine — Real-Redis Integration Tests', () => {
     if (!redisUrl) return;
 
     const mockEmailAdapter: EmailProvider = {
+      name: 'test-email',
       sendEmail: vi.fn().mockResolvedValue({
         success: false,
         error: 'Permanent delivery error',
@@ -773,6 +780,7 @@ describe('Worker Engine — Real-Redis Integration Tests', () => {
     let inFlightCompleted = false;
 
     const mockEmailAdapter: EmailProvider = {
+      name: 'test-email',
       sendEmail: vi.fn(async () => {
         inFlightStarted = true;
         // Simulate in-flight I/O latency

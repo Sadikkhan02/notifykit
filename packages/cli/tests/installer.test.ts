@@ -155,7 +155,7 @@ describe('CLI installer', () => {
   describe('installPackages', () => {
     it('executes execa with discrete argument array on success', async () => {
       vi.mocked(execaModule.execa).mockResolvedValueOnce(
-        {} as unknown as ReturnType<typeof execaModule.execa>,
+        {} as unknown as Awaited<ReturnType<typeof execaModule.execa>>,
       );
 
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'notifykit-install-test-'));

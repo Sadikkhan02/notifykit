@@ -144,16 +144,14 @@ async function main(): Promise<void> {
   let notifier: Notifier | undefined;
   try {
     notifier = createNotifier({
-      redis: { url: redisUrl },
+      redis: redisUrl,
       providers: {
-        sms: adapter,
+        sms: { type: 'msg91', adapter },
       },
     });
 
     // Register test event template
-    notifier.registerTemplate('msg91-verification', {
-      sms: 'Verification OTP: {{otp}}',
-    });
+    notifier.registerTemplate('msg91-verification', 'Verification OTP: {{otp}}');
 
     // Register OS signal handlers
     const sigintHandler = () => {
@@ -181,7 +179,8 @@ async function main(): Promise<void> {
     // 7. Enqueue SMS notification
     console.log('[ENQUEUE] Enqueueing notification for recipient...');
     const result = await notifier.notify({
-      event: 'msg91-verification',
+      template: 'msg91-verification',
+      channels: ['sms'],
       to: {
         phone: RECIPIENT_PHONE,
       },
@@ -189,7 +188,6 @@ async function main(): Promise<void> {
         otp: '123456',
         name: 'NotifyKit Tester',
       },
-      channels: ['sms'],
     });
 
     console.log(`[ENQUEUE] Enqueued job successfully. Job ID: ${result.jobId}`);

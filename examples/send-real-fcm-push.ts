@@ -153,16 +153,14 @@ async function main(): Promise<void> {
   let notifier: Notifier | undefined;
   try {
     notifier = createNotifier({
-      redis: { url: redisUrl },
+      redis: redisUrl,
       providers: {
-        push: adapter,
+        push: { type: 'fcm', adapter },
       },
     });
 
     // Register test event template
-    notifier.registerTemplate('fcm-verification', {
-      push: 'Real push verification from NotifyKit',
-    });
+    notifier.registerTemplate('fcm-verification', 'Real push verification from NotifyKit');
 
     // Register OS signal handlers
     const sigintHandler = () => {
@@ -194,7 +192,8 @@ async function main(): Promise<void> {
     // 7. Enqueue Push notification
     console.log('[ENQUEUE] Enqueueing notification for recipient device token...');
     const result = await notifier.notify({
-      event: 'fcm-verification',
+      template: 'fcm-verification',
+      channels: ['push'],
       to: {
         pushToken: RECIPIENT_PUSH_TOKEN,
       },
@@ -202,7 +201,6 @@ async function main(): Promise<void> {
         title: 'NotifyKit FCM Test',
         timestamp: String(Date.now()),
       },
-      channels: ['push'],
     });
 
     console.log(`[ENQUEUE] Enqueued job successfully. Job ID: ${result.jobId}`);
